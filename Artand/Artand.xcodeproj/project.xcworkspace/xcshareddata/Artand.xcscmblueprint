@@ -1,16 +1,18 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "784C9FA8FE6CACCAD540DFD70221991BD6BC21D3",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4892B160066711FC1AD340B9D9CE2D6FF6CCB429",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "BE24784C79207F9345D3AEBF2C13929D2DBE9E05" : 0,
+    "4892B160066711FC1AD340B9D9CE2D6FF6CCB429" : 0,
     "E22ADFF49904891E51FFC1B6DB8C1A53D60C2842" : 0,
     "784C9FA8FE6CACCAD540DFD70221991BD6BC21D3" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8987CA79-61A6-429A-AC96-4CD26082A8BE",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "BE24784C79207F9345D3AEBF2C13929D2DBE9E05" : "Desktop\/PullTest\/UI\/",
+    "4892B160066711FC1AD340B9D9CE2D6FF6CCB429" : "FirstProject\/",
     "E22ADFF49904891E51FFC1B6DB8C1A53D60C2842" : "Artand\/",
     "784C9FA8FE6CACCAD540DFD70221991BD6BC21D3" : "ArtandProject\/"
   },
@@ -18,6 +20,11 @@
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Artand\/Artand.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/NSKaleidoscope\/FirstProject.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4892B160066711FC1AD340B9D9CE2D6FF6CCB429"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.oschina.net\/NSKaleidoscope\/ArtandProject.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",

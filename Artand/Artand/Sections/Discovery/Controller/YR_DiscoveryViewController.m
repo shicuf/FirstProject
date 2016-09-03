@@ -83,25 +83,33 @@
     CGFloat shortImageHeight = shortImageWidth * shortScale;
     
     self.articleImageView = [self setupImageViewWithImage:[UIImage imageNamed:@"artcircle"] frame:CGRectMake(margin, 0, longImageWidth, longImageHeight)];
-    self.articleImageView.userInteractionEnabled = YES;
-    [self.articleImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(push:)]];
-    
+    [self setupImageView:self.articleImageView action:@selector(pushArticle:)];
     
     self.dailySelectionImageView = [self setupImageViewWithImage:[UIImage imageNamed:@"dailySelection"] frame:CGRectMake(margin, CGRectGetMaxY(self.articleImageView.frame) + margin, longImageWidth, longImageHeight)];
+    [self setupImageView:self.dailySelectionImageView action:@selector(pushDailySelection:)];
+    
     self.purchaseImageView = [self setupImageViewWithImage:[UIImage imageNamed:@"purchase_bg"] frame:CGRectMake(margin, CGRectGetMaxY(self.dailySelectionImageView.frame) + margin, longImageWidth, longImageHeight)];
+    [self setupImageView:self.purchaseImageView action:@selector(pushPurchase:)];
+    
     self.artistImageView = [self setupImageViewWithImage:[UIImage imageNamed:@"image_artist"] frame:CGRectMake(margin, CGRectGetMaxY(self.purchaseImageView.frame) + margin, longImageWidth, longImageHeight)];
+    [self setupImageView:self.artistImageView action:@selector(pushArtist:)];
+    
     self.fansImageView = [self setupImageViewWithImage:[UIImage imageNamed:@"image_fans"] frame:CGRectMake(margin, CGRectGetMaxY(self.artistImageView.frame) + margin, longImageWidth, longImageHeight)];
+    [self setupImageView:self.fansImageView action:@selector(pushFans:)];
+    
     self.personImageView = [self setupImageViewWithImage:[UIImage imageNamed:@"image_preson"] frame:CGRectMake(margin, CGRectGetMaxY(self.fansImageView.frame) + margin, shortImageWidth, shortImageHeight)];
+    [self setupImageView:self.personImageView action:@selector(pushPerson:)];
+    
     self.readingImageView = [self setupImageViewWithImage:[UIImage imageNamed:@"image_read"] frame:CGRectMake(2 * margin + shortImageWidth, CGRectGetMaxY(self.fansImageView.frame) + margin, shortImageWidth, shortImageHeight)];
+    [self setupImageView:self.readingImageView action:@selector(pushReading:)];
+    
     self.collectImageView = [self setupImageViewWithImage:[UIImage imageNamed:@"image_collect"] frame:CGRectMake(margin, CGRectGetMaxY(self.personImageView.frame) + margin, shortImageWidth, shortImageHeight)];
+    [self setupImageView:self.collectImageView action:@selector(pushCollect:)];
+    
     self.appreciateImageView = [self setupImageViewWithImage:[UIImage imageNamed:@"image_appreciate"] frame:CGRectMake(2 * margin + shortImageWidth, CGRectGetMaxY(self.personImageView.frame) + margin, shortImageWidth, shortImageHeight)];
+    [self setupImageView:self.appreciateImageView action:@selector(pushAppreciate:)];
     
     self.discoveryScrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.collectImageView.frame) + margin);
-}
-
-- (void)push:(UITapGestureRecognizer *)tap {
-    
-    NSLog(@"点击事件");
 }
 
 - (UIImageView *)setupImageViewWithImage:(UIImage *)image frame:(CGRect)frame {
@@ -112,5 +120,50 @@
     return imageView;
 }
 
+- (void)setupImageView:(UIImageView *)imageView action:(SEL)action {
+    
+    imageView.userInteractionEnabled = YES;
+    [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:action]];
+}
+
+- (void)pushArticle:(UITapGestureRecognizer *)tap {
+    
+    
+}
+
+- (void)pushDailySelection:(UITapGestureRecognizer *)tap {
+    
+    
+}
+
+- (void)pushPurchase:(UITapGestureRecognizer *)tap {
+    
+    
+}
+
+- (void)pushArtist:(UITapGestureRecognizer *)tap {
+    
+    
+}
+
+- (void)pushFans:(UITapGestureRecognizer *)tap {
+    
+}
+
+- (void)pushPerson:(UITapGestureRecognizer *)tap {
+    
+}
+
+- (void)pushReading:(UITapGestureRecognizer *)tap {
+    
+}
+
+- (void)pushCollect:(UITapGestureRecognizer *)tap {
+    
+}
+
+- (void)pushAppreciate:(UITapGestureRecognizer *)tap {
+    
+}
 
 @end

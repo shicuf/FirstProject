@@ -42,6 +42,8 @@
 		4978298A1D78434D00CB60D5 /* YR_ArtDetailSizeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 497829821D78434D00CB60D5 /* YR_ArtDetailSizeModel.m */; };
 		4978298B1D78434D00CB60D5 /* YR_ArtDetailWorkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 497829841D78434D00CB60D5 /* YR_ArtDetailWorkModel.m */; };
 		497829911D784ECD00CB60D5 /* YR_ArtDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497829901D784ECD00CB60D5 /* YR_ArtDetailViewController.m */; };
+		49893A7C1D7AC6B700B1A21A /* YR_DailySelectionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49893A791D7AC6B700B1A21A /* YR_DailySelectionListModel.m */; };
+		49893A7D1D7AC6B700B1A21A /* YR_DailySelectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49893A7B1D7AC6B700B1A21A /* YR_DailySelectionModel.m */; };
 		49CE19CF1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CE19CD1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.m */; };
 		49CE19D01D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CE19CE1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.xib */; };
 		49CE19D41D7A72A8008A93CA /* YR_ForgetPasswordResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CE19D21D7A72A8008A93CA /* YR_ForgetPasswordResetViewController.m */; };
@@ -185,6 +187,10 @@
 		497829841D78434D00CB60D5 /* YR_ArtDetailWorkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtDetailWorkModel.m; sourceTree = "<group>"; };
 		4978298F1D784ECD00CB60D5 /* YR_ArtDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtDetailViewController.h; sourceTree = "<group>"; };
 		497829901D784ECD00CB60D5 /* YR_ArtDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtDetailViewController.m; sourceTree = "<group>"; };
+		49893A781D7AC6B700B1A21A /* YR_DailySelectionListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_DailySelectionListModel.h; sourceTree = "<group>"; };
+		49893A791D7AC6B700B1A21A /* YR_DailySelectionListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_DailySelectionListModel.m; sourceTree = "<group>"; };
+		49893A7A1D7AC6B700B1A21A /* YR_DailySelectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_DailySelectionModel.h; sourceTree = "<group>"; };
+		49893A7B1D7AC6B700B1A21A /* YR_DailySelectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_DailySelectionModel.m; sourceTree = "<group>"; };
 		49CE19CC1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ForgetPasswordInputCaptchaViewController.h; sourceTree = "<group>"; };
 		49CE19CD1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ForgetPasswordInputCaptchaViewController.m; sourceTree = "<group>"; };
 		49CE19CE1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_ForgetPasswordInputCaptchaViewController.xib; sourceTree = "<group>"; };
@@ -417,9 +423,9 @@
 		4965CAB61D71720E0004D6A4 /* Discovery */ = {
 			isa = PBXGroup;
 			children = (
-				4965CAB71D71720E0004D6A4 /* Controller */,
-				4965CAB81D71720E0004D6A4 /* Model */,
+				49893A761D7AC63100B1A21A /* Model */,
 				4965CAB91D71720E0004D6A4 /* View */,
+				4965CAB71D71720E0004D6A4 /* Controller */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -431,13 +437,6 @@
 				4949E18F1D71770D00CED5DE /* YR_DiscoveryViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		4965CAB81D71720E0004D6A4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		4965CAB91D71720E0004D6A4 /* View */ = {
@@ -614,6 +613,25 @@
 				497829841D78434D00CB60D5 /* YR_ArtDetailWorkModel.m */,
 			);
 			path = ArtDetailModel;
+			sourceTree = "<group>";
+		};
+		49893A761D7AC63100B1A21A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49893A771D7AC6B700B1A21A /* DailySelectionModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49893A771D7AC6B700B1A21A /* DailySelectionModel */ = {
+			isa = PBXGroup;
+			children = (
+				49893A781D7AC6B700B1A21A /* YR_DailySelectionListModel.h */,
+				49893A791D7AC6B700B1A21A /* YR_DailySelectionListModel.m */,
+				49893A7A1D7AC6B700B1A21A /* YR_DailySelectionModel.h */,
+				49893A7B1D7AC6B700B1A21A /* YR_DailySelectionModel.m */,
+			);
+			path = DailySelectionModel;
 			sourceTree = "<group>";
 		};
 		B61CC1C61D71393D004AAC55 = {
@@ -1014,6 +1032,7 @@
 				B6904FF91D75E94E00B642CE /* YR_TabBar.m in Sources */,
 				B61CC28E1D714176004AAC55 /* YR_BaseTableViewCell.m in Sources */,
 				B61CC2601D713A14004AAC55 /* UIView+Frame.m in Sources */,
+				49893A7D1D7AC6B700B1A21A /* YR_DailySelectionModel.m in Sources */,
 				B61CC27F1D713A14004AAC55 /* SDWebImageDownloaderOperation.m in Sources */,
 				491A2E1A1D76D4260042EE70 /* YR_TitleCollectionViewCell.m in Sources */,
 				494A820B1D75B3A2003047A9 /* YR_ShowTableViewCell.m in Sources */,
@@ -1092,6 +1111,7 @@
 				B6A30DA61D72AEC50014CB28 /* YR_LogupViewController.m in Sources */,
 				497829911D784ECD00CB60D5 /* YR_ArtDetailViewController.m in Sources */,
 				4949E1901D71770D00CED5DE /* YR_DiscoveryViewController.m in Sources */,
+				49893A7C1D7AC6B700B1A21A /* YR_DailySelectionListModel.m in Sources */,
 				B61CC2781D713A14004AAC55 /* ViewController+MASAdditions.m in Sources */,
 				494A82021D75A160003047A9 /* YR_NewArtsAuthModel.m in Sources */,
 				B6904FF41D75DC7E00B642CE /* YR_ShowListModel.m in Sources */,
