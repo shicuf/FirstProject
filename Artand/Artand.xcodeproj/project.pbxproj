@@ -11,6 +11,7 @@
 		491A2E1A1D76D4260042EE70 /* YR_TitleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 491A2E181D76D4260042EE70 /* YR_TitleCollectionViewCell.m */; };
 		491A2E1B1D76D4260042EE70 /* YR_TitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A2E191D76D4260042EE70 /* YR_TitleCollectionViewCell.xib */; };
 		491A2E231D77A6CB0042EE70 /* YR_LikeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 491A2E221D77A6CB0042EE70 /* YR_LikeListViewController.m */; };
+		492ED7781D7D8EE600E48ABE /* article.js in Resources */ = {isa = PBXBuildFile; fileRef = 492ED7771D7D8EE600E48ABE /* article.js */; };
 		49309A761D7187B100E49044 /* YR_LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49309A741D7187B100E49044 /* YR_LoginViewController.m */; };
 		49309A771D7187B100E49044 /* YR_LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49309A751D7187B100E49044 /* YR_LoginViewController.xib */; };
 		49309A801D71881100E49044 /* YR_ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49309A7E1D71881100E49044 /* YR_ForgetPasswordViewController.m */; };
@@ -29,6 +30,11 @@
 		494A82071D75A160003047A9 /* YR_NewArtsPicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 494A82011D75A160003047A9 /* YR_NewArtsPicsModel.m */; };
 		494A820B1D75B3A2003047A9 /* YR_ShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 494A82091D75B3A2003047A9 /* YR_ShowTableViewCell.m */; };
 		494A820C1D75B3A2003047A9 /* YR_ShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494A820A1D75B3A2003047A9 /* YR_ShowTableViewCell.xib */; };
+		496202CE1D7D49AA00E225F0 /* YR_FansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496202CC1D7D49AA00E225F0 /* YR_FansViewController.m */; };
+		496202CF1D7D49AA00E225F0 /* YR_FansViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496202CD1D7D49AA00E225F0 /* YR_FansViewController.xib */; };
+		496202D31D7D4E3300E225F0 /* YR_FansCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496202D11D7D4E3300E225F0 /* YR_FansCollectionViewCell.m */; };
+		496202D41D7D4E3300E225F0 /* YR_FansCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496202D21D7D4E3300E225F0 /* YR_FansCollectionViewCell.xib */; };
+		496202F81D7D884800E225F0 /* type.js in Resources */ = {isa = PBXBuildFile; fileRef = 496202F71D7D884800E225F0 /* type.js */; };
 		496BBC3A1D741E1C00FC03D6 /* YR_CycleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 496BBC391D741E1C00FC03D6 /* YR_CycleImage.m */; };
 		496BBC3E1D74208200FC03D6 /* YR_Ads.m in Sources */ = {isa = PBXBuildFile; fileRef = 496BBC3D1D74208200FC03D6 /* YR_Ads.m */; };
 		496BBC411D74230200FC03D6 /* YR_CycleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 496BBC401D74230200FC03D6 /* YR_CycleModel.m */; };
@@ -44,6 +50,10 @@
 		497829911D784ECD00CB60D5 /* YR_ArtDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497829901D784ECD00CB60D5 /* YR_ArtDetailViewController.m */; };
 		49893A7C1D7AC6B700B1A21A /* YR_DailySelectionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49893A791D7AC6B700B1A21A /* YR_DailySelectionListModel.m */; };
 		49893A7D1D7AC6B700B1A21A /* YR_DailySelectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49893A7B1D7AC6B700B1A21A /* YR_DailySelectionModel.m */; };
+		49CAF3761D7ACF1E003BF7F7 /* YR_DailySelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CAF3741D7ACF1E003BF7F7 /* YR_DailySelectionViewController.m */; };
+		49CAF3771D7ACF1E003BF7F7 /* YR_DailySelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CAF3751D7ACF1E003BF7F7 /* YR_DailySelectionViewController.xib */; };
+		49CAF37C1D7AD2C6003BF7F7 /* YR_DailyCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CAF37A1D7AD2C6003BF7F7 /* YR_DailyCollectionCell.m */; };
+		49CAF37D1D7AD2C6003BF7F7 /* YR_DailyCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CAF37B1D7AD2C6003BF7F7 /* YR_DailyCollectionCell.xib */; };
 		49CE19CF1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CE19CD1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.m */; };
 		49CE19D01D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CE19CE1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.xib */; };
 		49CE19D41D7A72A8008A93CA /* YR_ForgetPasswordResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CE19D21D7A72A8008A93CA /* YR_ForgetPasswordResetViewController.m */; };
@@ -100,6 +110,40 @@
 		B61CC2A11D714302004AAC55 /* YR_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CC2A01D714302004AAC55 /* YR_MainViewController.m */; };
 		B6792BA31D79DCB500509CED /* YR_ArtDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BA11D79DCB500509CED /* YR_ArtDetailCommentCell.m */; };
 		B6792BA41D79DCB500509CED /* YR_ArtDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6792BA21D79DCB500509CED /* YR_ArtDetailCommentCell.xib */; };
+		B6792BAB1D7B27FB00509CED /* YR_FourSmallSectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BA91D7B27FB00509CED /* YR_FourSmallSectionsViewController.m */; };
+		B6792BAC1D7B27FB00509CED /* YR_FourSmallSectionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6792BAA1D7B27FB00509CED /* YR_FourSmallSectionsViewController.xib */; };
+		B6792BB01D7B392700509CED /* YR_PurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BAE1D7B392700509CED /* YR_PurchaseViewController.m */; };
+		B6792BB11D7B392700509CED /* YR_PurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6792BAF1D7B392700509CED /* YR_PurchaseViewController.xib */; };
+		B6792BB51D7B3CB600509CED /* YR_PurchaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BB31D7B3CB600509CED /* YR_PurchaseCell.m */; };
+		B6792BB61D7B3CB600509CED /* YR_PurchaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6792BB41D7B3CB600509CED /* YR_PurchaseCell.xib */; };
+		B6792BC71D7B3F2200509CED /* YR_PurchaseAuthModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BBA1D7B3F2200509CED /* YR_PurchaseAuthModel.m */; };
+		B6792BC81D7B3F2200509CED /* YR_PurchaseExtralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BBC1D7B3F2200509CED /* YR_PurchaseExtralModel.m */; };
+		B6792BC91D7B3F2200509CED /* YR_PurchaseListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BBE1D7B3F2200509CED /* YR_PurchaseListModel.m */; };
+		B6792BCA1D7B3F2200509CED /* YR_PurchaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BC01D7B3F2200509CED /* YR_PurchaseModel.m */; };
+		B6792BCB1D7B3F2200509CED /* YR_PurchasePicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BC21D7B3F2200509CED /* YR_PurchasePicModel.m */; };
+		B6792BCC1D7B3F2200509CED /* YR_PurchasePicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BC41D7B3F2200509CED /* YR_PurchasePicsModel.m */; };
+		B6792BCD1D7B3F2200509CED /* YR_PurchaseSizeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BC61D7B3F2200509CED /* YR_PurchaseSizeModel.m */; };
+		B6792BD11D7BBF5600509CED /* YR_ArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BCF1D7BBF5600509CED /* YR_ArtistViewController.m */; };
+		B6792BD21D7BBF5600509CED /* YR_ArtistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6792BD01D7BBF5600509CED /* YR_ArtistViewController.xib */; };
+		B6792BD61D7BC0E600509CED /* YR_ArtistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BD41D7BC0E600509CED /* YR_ArtistTableViewCell.m */; };
+		B6792BD71D7BC0E600509CED /* YR_ArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6792BD51D7BC0E600509CED /* YR_ArtistTableViewCell.xib */; };
+		B6792BDB1D7BC98700509CED /* YR_ArtistCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BD91D7BC98700509CED /* YR_ArtistCollectionViewCell.m */; };
+		B6792BDC1D7BC98700509CED /* YR_ArtistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6792BDA1D7BC98700509CED /* YR_ArtistCollectionViewCell.xib */; };
+		B6792BDF1D7BD22A00509CED /* YR_ArtistTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792BDE1D7BD22A00509CED /* YR_ArtistTableView.m */; };
+		B6792C571D7C4F1B00509CED /* YR_ArtistAuthModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C481D7C4F1B00509CED /* YR_ArtistAuthModel.m */; };
+		B6792C581D7C4F1B00509CED /* YR_ArtistInUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C4A1D7C4F1B00509CED /* YR_ArtistInUserModel.m */; };
+		B6792C591D7C4F1B00509CED /* YR_ArtistListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C4C1D7C4F1B00509CED /* YR_ArtistListModel.m */; };
+		B6792C5A1D7C4F1B00509CED /* YR_ArtistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C4E1D7C4F1B00509CED /* YR_ArtistModel.m */; };
+		B6792C5B1D7C4F1B00509CED /* YR_ArtistOutUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C501D7C4F1B00509CED /* YR_ArtistOutUserModel.m */; };
+		B6792C5C1D7C4F1B00509CED /* YR_ArtistPicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C521D7C4F1B00509CED /* YR_ArtistPicModel.m */; };
+		B6792C5D1D7C4F1B00509CED /* YR_ArtistPicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C541D7C4F1B00509CED /* YR_ArtistPicsModel.m */; };
+		B6792C5E1D7C4F1B00509CED /* YR_ArtistWorksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C561D7C4F1B00509CED /* YR_ArtistWorksModel.m */; };
+		B6792C611D7DC88B00509CED /* YR_ArticleWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C601D7DC88B00509CED /* YR_ArticleWebViewController.m */; };
+		B6792C6D1D7DCCFE00509CED /* YR_ArticleDetailArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C641D7DCCFE00509CED /* YR_ArticleDetailArticleModel.m */; };
+		B6792C6E1D7DCCFE00509CED /* YR_ArticleDetailLikedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C661D7DCCFE00509CED /* YR_ArticleDetailLikedModel.m */; };
+		B6792C6F1D7DCCFE00509CED /* YR_ArticleDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C681D7DCCFE00509CED /* YR_ArticleDetailModel.m */; };
+		B6792C701D7DCCFE00509CED /* YR_ArticleDetailRewardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C6A1D7DCCFE00509CED /* YR_ArticleDetailRewardModel.m */; };
+		B6792C711D7DCCFE00509CED /* YR_ArticleDetailUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6792C6C1D7DCCFE00509CED /* YR_ArticleDetailUserModel.m */; };
 		B6904FCC1D73228900B642CE /* YR_SetupPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6904FCA1D73228900B642CE /* YR_SetupPasswordViewController.m */; };
 		B6904FCD1D73228900B642CE /* YR_SetupPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6904FCB1D73228900B642CE /* YR_SetupPasswordViewController.xib */; };
 		B6904FD11D7482DC00B642CE /* YR_EditorRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6904FD01D7482DC00B642CE /* YR_EditorRecommendModel.m */; };
@@ -130,6 +174,7 @@
 		491A2E191D76D4260042EE70 /* YR_TitleCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_TitleCollectionViewCell.xib; sourceTree = "<group>"; };
 		491A2E211D77A6CB0042EE70 /* YR_LikeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_LikeListViewController.h; sourceTree = "<group>"; };
 		491A2E221D77A6CB0042EE70 /* YR_LikeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_LikeListViewController.m; sourceTree = "<group>"; };
+		492ED7771D7D8EE600E48ABE /* article.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = article.js; sourceTree = "<group>"; };
 		49309A731D7187B100E49044 /* YR_LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_LoginViewController.h; sourceTree = "<group>"; };
 		49309A741D7187B100E49044 /* YR_LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_LoginViewController.m; sourceTree = "<group>"; };
 		49309A751D7187B100E49044 /* YR_LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_LoginViewController.xib; sourceTree = "<group>"; };
@@ -162,6 +207,13 @@
 		494A82081D75B3A2003047A9 /* YR_ShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ShowTableViewCell.h; sourceTree = "<group>"; };
 		494A82091D75B3A2003047A9 /* YR_ShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ShowTableViewCell.m; sourceTree = "<group>"; };
 		494A820A1D75B3A2003047A9 /* YR_ShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_ShowTableViewCell.xib; sourceTree = "<group>"; };
+		496202CB1D7D49AA00E225F0 /* YR_FansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_FansViewController.h; sourceTree = "<group>"; };
+		496202CC1D7D49AA00E225F0 /* YR_FansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_FansViewController.m; sourceTree = "<group>"; };
+		496202CD1D7D49AA00E225F0 /* YR_FansViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_FansViewController.xib; sourceTree = "<group>"; };
+		496202D01D7D4E3300E225F0 /* YR_FansCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_FansCollectionViewCell.h; sourceTree = "<group>"; };
+		496202D11D7D4E3300E225F0 /* YR_FansCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_FansCollectionViewCell.m; sourceTree = "<group>"; };
+		496202D21D7D4E3300E225F0 /* YR_FansCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_FansCollectionViewCell.xib; sourceTree = "<group>"; };
+		496202F71D7D884800E225F0 /* type.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = type.js; sourceTree = "<group>"; };
 		496BBC381D741E1C00FC03D6 /* YR_CycleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_CycleImage.h; sourceTree = "<group>"; };
 		496BBC391D741E1C00FC03D6 /* YR_CycleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_CycleImage.m; sourceTree = "<group>"; };
 		496BBC3C1D74208200FC03D6 /* YR_Ads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_Ads.h; sourceTree = "<group>"; };
@@ -191,6 +243,12 @@
 		49893A791D7AC6B700B1A21A /* YR_DailySelectionListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_DailySelectionListModel.m; sourceTree = "<group>"; };
 		49893A7A1D7AC6B700B1A21A /* YR_DailySelectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_DailySelectionModel.h; sourceTree = "<group>"; };
 		49893A7B1D7AC6B700B1A21A /* YR_DailySelectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_DailySelectionModel.m; sourceTree = "<group>"; };
+		49CAF3731D7ACF1E003BF7F7 /* YR_DailySelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_DailySelectionViewController.h; sourceTree = "<group>"; };
+		49CAF3741D7ACF1E003BF7F7 /* YR_DailySelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_DailySelectionViewController.m; sourceTree = "<group>"; };
+		49CAF3751D7ACF1E003BF7F7 /* YR_DailySelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_DailySelectionViewController.xib; sourceTree = "<group>"; };
+		49CAF3791D7AD2C6003BF7F7 /* YR_DailyCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_DailyCollectionCell.h; sourceTree = "<group>"; };
+		49CAF37A1D7AD2C6003BF7F7 /* YR_DailyCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_DailyCollectionCell.m; sourceTree = "<group>"; };
+		49CAF37B1D7AD2C6003BF7F7 /* YR_DailyCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_DailyCollectionCell.xib; sourceTree = "<group>"; };
 		49CE19CC1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ForgetPasswordInputCaptchaViewController.h; sourceTree = "<group>"; };
 		49CE19CD1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ForgetPasswordInputCaptchaViewController.m; sourceTree = "<group>"; };
 		49CE19CE1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_ForgetPasswordInputCaptchaViewController.xib; sourceTree = "<group>"; };
@@ -304,6 +362,68 @@
 		B6792BA01D79DCB500509CED /* YR_ArtDetailCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtDetailCommentCell.h; sourceTree = "<group>"; };
 		B6792BA11D79DCB500509CED /* YR_ArtDetailCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtDetailCommentCell.m; sourceTree = "<group>"; };
 		B6792BA21D79DCB500509CED /* YR_ArtDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_ArtDetailCommentCell.xib; sourceTree = "<group>"; };
+		B6792BA81D7B27FB00509CED /* YR_FourSmallSectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_FourSmallSectionsViewController.h; sourceTree = "<group>"; };
+		B6792BA91D7B27FB00509CED /* YR_FourSmallSectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_FourSmallSectionsViewController.m; sourceTree = "<group>"; };
+		B6792BAA1D7B27FB00509CED /* YR_FourSmallSectionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_FourSmallSectionsViewController.xib; sourceTree = "<group>"; };
+		B6792BAD1D7B392700509CED /* YR_PurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_PurchaseViewController.h; sourceTree = "<group>"; };
+		B6792BAE1D7B392700509CED /* YR_PurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_PurchaseViewController.m; sourceTree = "<group>"; };
+		B6792BAF1D7B392700509CED /* YR_PurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_PurchaseViewController.xib; sourceTree = "<group>"; };
+		B6792BB21D7B3CB600509CED /* YR_PurchaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_PurchaseCell.h; sourceTree = "<group>"; };
+		B6792BB31D7B3CB600509CED /* YR_PurchaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_PurchaseCell.m; sourceTree = "<group>"; };
+		B6792BB41D7B3CB600509CED /* YR_PurchaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_PurchaseCell.xib; sourceTree = "<group>"; };
+		B6792BB91D7B3F2200509CED /* YR_PurchaseAuthModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_PurchaseAuthModel.h; sourceTree = "<group>"; };
+		B6792BBA1D7B3F2200509CED /* YR_PurchaseAuthModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_PurchaseAuthModel.m; sourceTree = "<group>"; };
+		B6792BBB1D7B3F2200509CED /* YR_PurchaseExtralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_PurchaseExtralModel.h; sourceTree = "<group>"; };
+		B6792BBC1D7B3F2200509CED /* YR_PurchaseExtralModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_PurchaseExtralModel.m; sourceTree = "<group>"; };
+		B6792BBD1D7B3F2200509CED /* YR_PurchaseListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_PurchaseListModel.h; sourceTree = "<group>"; };
+		B6792BBE1D7B3F2200509CED /* YR_PurchaseListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_PurchaseListModel.m; sourceTree = "<group>"; };
+		B6792BBF1D7B3F2200509CED /* YR_PurchaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_PurchaseModel.h; sourceTree = "<group>"; };
+		B6792BC01D7B3F2200509CED /* YR_PurchaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_PurchaseModel.m; sourceTree = "<group>"; };
+		B6792BC11D7B3F2200509CED /* YR_PurchasePicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_PurchasePicModel.h; sourceTree = "<group>"; };
+		B6792BC21D7B3F2200509CED /* YR_PurchasePicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_PurchasePicModel.m; sourceTree = "<group>"; };
+		B6792BC31D7B3F2200509CED /* YR_PurchasePicsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_PurchasePicsModel.h; sourceTree = "<group>"; };
+		B6792BC41D7B3F2200509CED /* YR_PurchasePicsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_PurchasePicsModel.m; sourceTree = "<group>"; };
+		B6792BC51D7B3F2200509CED /* YR_PurchaseSizeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_PurchaseSizeModel.h; sourceTree = "<group>"; };
+		B6792BC61D7B3F2200509CED /* YR_PurchaseSizeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_PurchaseSizeModel.m; sourceTree = "<group>"; };
+		B6792BCE1D7BBF5600509CED /* YR_ArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistViewController.h; sourceTree = "<group>"; };
+		B6792BCF1D7BBF5600509CED /* YR_ArtistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistViewController.m; sourceTree = "<group>"; };
+		B6792BD01D7BBF5600509CED /* YR_ArtistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_ArtistViewController.xib; sourceTree = "<group>"; };
+		B6792BD31D7BC0E600509CED /* YR_ArtistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistTableViewCell.h; sourceTree = "<group>"; };
+		B6792BD41D7BC0E600509CED /* YR_ArtistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistTableViewCell.m; sourceTree = "<group>"; };
+		B6792BD51D7BC0E600509CED /* YR_ArtistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_ArtistTableViewCell.xib; sourceTree = "<group>"; };
+		B6792BD81D7BC98700509CED /* YR_ArtistCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistCollectionViewCell.h; sourceTree = "<group>"; };
+		B6792BD91D7BC98700509CED /* YR_ArtistCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistCollectionViewCell.m; sourceTree = "<group>"; };
+		B6792BDA1D7BC98700509CED /* YR_ArtistCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_ArtistCollectionViewCell.xib; sourceTree = "<group>"; };
+		B6792BDD1D7BD22A00509CED /* YR_ArtistTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistTableView.h; sourceTree = "<group>"; };
+		B6792BDE1D7BD22A00509CED /* YR_ArtistTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistTableView.m; sourceTree = "<group>"; };
+		B6792C471D7C4F1B00509CED /* YR_ArtistAuthModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistAuthModel.h; sourceTree = "<group>"; };
+		B6792C481D7C4F1B00509CED /* YR_ArtistAuthModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistAuthModel.m; sourceTree = "<group>"; };
+		B6792C491D7C4F1B00509CED /* YR_ArtistInUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistInUserModel.h; sourceTree = "<group>"; };
+		B6792C4A1D7C4F1B00509CED /* YR_ArtistInUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistInUserModel.m; sourceTree = "<group>"; };
+		B6792C4B1D7C4F1B00509CED /* YR_ArtistListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistListModel.h; sourceTree = "<group>"; };
+		B6792C4C1D7C4F1B00509CED /* YR_ArtistListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistListModel.m; sourceTree = "<group>"; };
+		B6792C4D1D7C4F1B00509CED /* YR_ArtistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistModel.h; sourceTree = "<group>"; };
+		B6792C4E1D7C4F1B00509CED /* YR_ArtistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistModel.m; sourceTree = "<group>"; };
+		B6792C4F1D7C4F1B00509CED /* YR_ArtistOutUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistOutUserModel.h; sourceTree = "<group>"; };
+		B6792C501D7C4F1B00509CED /* YR_ArtistOutUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistOutUserModel.m; sourceTree = "<group>"; };
+		B6792C511D7C4F1B00509CED /* YR_ArtistPicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistPicModel.h; sourceTree = "<group>"; };
+		B6792C521D7C4F1B00509CED /* YR_ArtistPicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistPicModel.m; sourceTree = "<group>"; };
+		B6792C531D7C4F1B00509CED /* YR_ArtistPicsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistPicsModel.h; sourceTree = "<group>"; };
+		B6792C541D7C4F1B00509CED /* YR_ArtistPicsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistPicsModel.m; sourceTree = "<group>"; };
+		B6792C551D7C4F1B00509CED /* YR_ArtistWorksModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArtistWorksModel.h; sourceTree = "<group>"; };
+		B6792C561D7C4F1B00509CED /* YR_ArtistWorksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArtistWorksModel.m; sourceTree = "<group>"; };
+		B6792C5F1D7DC88B00509CED /* YR_ArticleWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArticleWebViewController.h; sourceTree = "<group>"; };
+		B6792C601D7DC88B00509CED /* YR_ArticleWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArticleWebViewController.m; sourceTree = "<group>"; };
+		B6792C631D7DCCFE00509CED /* YR_ArticleDetailArticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArticleDetailArticleModel.h; sourceTree = "<group>"; };
+		B6792C641D7DCCFE00509CED /* YR_ArticleDetailArticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArticleDetailArticleModel.m; sourceTree = "<group>"; };
+		B6792C651D7DCCFE00509CED /* YR_ArticleDetailLikedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArticleDetailLikedModel.h; sourceTree = "<group>"; };
+		B6792C661D7DCCFE00509CED /* YR_ArticleDetailLikedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArticleDetailLikedModel.m; sourceTree = "<group>"; };
+		B6792C671D7DCCFE00509CED /* YR_ArticleDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArticleDetailModel.h; sourceTree = "<group>"; };
+		B6792C681D7DCCFE00509CED /* YR_ArticleDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArticleDetailModel.m; sourceTree = "<group>"; };
+		B6792C691D7DCCFE00509CED /* YR_ArticleDetailRewardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArticleDetailRewardModel.h; sourceTree = "<group>"; };
+		B6792C6A1D7DCCFE00509CED /* YR_ArticleDetailRewardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArticleDetailRewardModel.m; sourceTree = "<group>"; };
+		B6792C6B1D7DCCFE00509CED /* YR_ArticleDetailUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_ArticleDetailUserModel.h; sourceTree = "<group>"; };
+		B6792C6C1D7DCCFE00509CED /* YR_ArticleDetailUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_ArticleDetailUserModel.m; sourceTree = "<group>"; };
 		B6904FC91D73228900B642CE /* YR_SetupPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YR_SetupPasswordViewController.h; sourceTree = "<group>"; };
 		B6904FCA1D73228900B642CE /* YR_SetupPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YR_SetupPasswordViewController.m; sourceTree = "<group>"; };
 		B6904FCB1D73228900B642CE /* YR_SetupPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YR_SetupPasswordViewController.xib; sourceTree = "<group>"; };
@@ -424,7 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				49893A761D7AC63100B1A21A /* Model */,
-				4965CAB91D71720E0004D6A4 /* View */,
+				49CAF3781D7AD281003BF7F7 /* View */,
 				4965CAB71D71720E0004D6A4 /* Controller */,
 			);
 			path = Discovery;
@@ -435,15 +555,23 @@
 			children = (
 				4949E18E1D71770D00CED5DE /* YR_DiscoveryViewController.h */,
 				4949E18F1D71770D00CED5DE /* YR_DiscoveryViewController.m */,
+				49CAF3731D7ACF1E003BF7F7 /* YR_DailySelectionViewController.h */,
+				49CAF3741D7ACF1E003BF7F7 /* YR_DailySelectionViewController.m */,
+				49CAF3751D7ACF1E003BF7F7 /* YR_DailySelectionViewController.xib */,
+				B6792BAD1D7B392700509CED /* YR_PurchaseViewController.h */,
+				B6792BAE1D7B392700509CED /* YR_PurchaseViewController.m */,
+				B6792BAF1D7B392700509CED /* YR_PurchaseViewController.xib */,
+				B6792BCE1D7BBF5600509CED /* YR_ArtistViewController.h */,
+				B6792BCF1D7BBF5600509CED /* YR_ArtistViewController.m */,
+				B6792BD01D7BBF5600509CED /* YR_ArtistViewController.xib */,
+				496202CB1D7D49AA00E225F0 /* YR_FansViewController.h */,
+				496202CC1D7D49AA00E225F0 /* YR_FansViewController.m */,
+				496202CD1D7D49AA00E225F0 /* YR_FansViewController.xib */,
+				B6792BA81D7B27FB00509CED /* YR_FourSmallSectionsViewController.h */,
+				B6792BA91D7B27FB00509CED /* YR_FourSmallSectionsViewController.m */,
+				B6792BAA1D7B27FB00509CED /* YR_FourSmallSectionsViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		4965CAB91D71720E0004D6A4 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		4965CABA1D71720E0004D6A4 /* Home */ = {
@@ -468,6 +596,8 @@
 				491A2E221D77A6CB0042EE70 /* YR_LikeListViewController.m */,
 				4978298F1D784ECD00CB60D5 /* YR_ArtDetailViewController.h */,
 				497829901D784ECD00CB60D5 /* YR_ArtDetailViewController.m */,
+				B6792C5F1D7DC88B00509CED /* YR_ArticleWebViewController.h */,
+				B6792C601D7DC88B00509CED /* YR_ArticleWebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -480,6 +610,7 @@
 				494A81F51D75A160003047A9 /* NewArtsModel */,
 				B6904FED1D75DC7E00B642CE /* ShowModel */,
 				497829761D78434D00CB60D5 /* ArtDetailModel */,
+				B6792C621D7DCCFE00509CED /* ArticleDetailModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -619,6 +750,8 @@
 			isa = PBXGroup;
 			children = (
 				49893A771D7AC6B700B1A21A /* DailySelectionModel */,
+				B6792BE01D7C37BF00509CED /* ArtistModel */,
+				B6792BB81D7B3F2200509CED /* PurchaseModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -632,6 +765,30 @@
 				49893A7B1D7AC6B700B1A21A /* YR_DailySelectionModel.m */,
 			);
 			path = DailySelectionModel;
+			sourceTree = "<group>";
+		};
+		49CAF3781D7AD281003BF7F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49CAF3791D7AD2C6003BF7F7 /* YR_DailyCollectionCell.h */,
+				49CAF37A1D7AD2C6003BF7F7 /* YR_DailyCollectionCell.m */,
+				49CAF37B1D7AD2C6003BF7F7 /* YR_DailyCollectionCell.xib */,
+				B6792BB21D7B3CB600509CED /* YR_PurchaseCell.h */,
+				B6792BB31D7B3CB600509CED /* YR_PurchaseCell.m */,
+				B6792BB41D7B3CB600509CED /* YR_PurchaseCell.xib */,
+				B6792BDD1D7BD22A00509CED /* YR_ArtistTableView.h */,
+				B6792BDE1D7BD22A00509CED /* YR_ArtistTableView.m */,
+				B6792BD31D7BC0E600509CED /* YR_ArtistTableViewCell.h */,
+				B6792BD41D7BC0E600509CED /* YR_ArtistTableViewCell.m */,
+				B6792BD51D7BC0E600509CED /* YR_ArtistTableViewCell.xib */,
+				B6792BD81D7BC98700509CED /* YR_ArtistCollectionViewCell.h */,
+				B6792BD91D7BC98700509CED /* YR_ArtistCollectionViewCell.m */,
+				B6792BDA1D7BC98700509CED /* YR_ArtistCollectionViewCell.xib */,
+				496202D01D7D4E3300E225F0 /* YR_FansCollectionViewCell.h */,
+				496202D11D7D4E3300E225F0 /* YR_FansCollectionViewCell.m */,
+				496202D21D7D4E3300E225F0 /* YR_FansCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B61CC1C61D71393D004AAC55 = {
@@ -667,6 +824,8 @@
 		B61CC1D21D71393D004AAC55 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				492ED7771D7D8EE600E48ABE /* article.js */,
+				496202F71D7D884800E225F0 /* type.js */,
 				B61CC1DE1D71393D004AAC55 /* Assets.xcassets */,
 				B61CC1E01D71393D004AAC55 /* LaunchScreen.storyboard */,
 				B61CC1E31D71393D004AAC55 /* Info.plist */,
@@ -885,6 +1044,67 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		B6792BB81D7B3F2200509CED /* PurchaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6792BB91D7B3F2200509CED /* YR_PurchaseAuthModel.h */,
+				B6792BBA1D7B3F2200509CED /* YR_PurchaseAuthModel.m */,
+				B6792BBB1D7B3F2200509CED /* YR_PurchaseExtralModel.h */,
+				B6792BBC1D7B3F2200509CED /* YR_PurchaseExtralModel.m */,
+				B6792BBD1D7B3F2200509CED /* YR_PurchaseListModel.h */,
+				B6792BBE1D7B3F2200509CED /* YR_PurchaseListModel.m */,
+				B6792BBF1D7B3F2200509CED /* YR_PurchaseModel.h */,
+				B6792BC01D7B3F2200509CED /* YR_PurchaseModel.m */,
+				B6792BC11D7B3F2200509CED /* YR_PurchasePicModel.h */,
+				B6792BC21D7B3F2200509CED /* YR_PurchasePicModel.m */,
+				B6792BC31D7B3F2200509CED /* YR_PurchasePicsModel.h */,
+				B6792BC41D7B3F2200509CED /* YR_PurchasePicsModel.m */,
+				B6792BC51D7B3F2200509CED /* YR_PurchaseSizeModel.h */,
+				B6792BC61D7B3F2200509CED /* YR_PurchaseSizeModel.m */,
+			);
+			path = PurchaseModel;
+			sourceTree = "<group>";
+		};
+		B6792BE01D7C37BF00509CED /* ArtistModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6792C471D7C4F1B00509CED /* YR_ArtistAuthModel.h */,
+				B6792C481D7C4F1B00509CED /* YR_ArtistAuthModel.m */,
+				B6792C491D7C4F1B00509CED /* YR_ArtistInUserModel.h */,
+				B6792C4A1D7C4F1B00509CED /* YR_ArtistInUserModel.m */,
+				B6792C4B1D7C4F1B00509CED /* YR_ArtistListModel.h */,
+				B6792C4C1D7C4F1B00509CED /* YR_ArtistListModel.m */,
+				B6792C4D1D7C4F1B00509CED /* YR_ArtistModel.h */,
+				B6792C4E1D7C4F1B00509CED /* YR_ArtistModel.m */,
+				B6792C4F1D7C4F1B00509CED /* YR_ArtistOutUserModel.h */,
+				B6792C501D7C4F1B00509CED /* YR_ArtistOutUserModel.m */,
+				B6792C511D7C4F1B00509CED /* YR_ArtistPicModel.h */,
+				B6792C521D7C4F1B00509CED /* YR_ArtistPicModel.m */,
+				B6792C531D7C4F1B00509CED /* YR_ArtistPicsModel.h */,
+				B6792C541D7C4F1B00509CED /* YR_ArtistPicsModel.m */,
+				B6792C551D7C4F1B00509CED /* YR_ArtistWorksModel.h */,
+				B6792C561D7C4F1B00509CED /* YR_ArtistWorksModel.m */,
+			);
+			path = ArtistModel;
+			sourceTree = "<group>";
+		};
+		B6792C621D7DCCFE00509CED /* ArticleDetailModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6792C631D7DCCFE00509CED /* YR_ArticleDetailArticleModel.h */,
+				B6792C641D7DCCFE00509CED /* YR_ArticleDetailArticleModel.m */,
+				B6792C651D7DCCFE00509CED /* YR_ArticleDetailLikedModel.h */,
+				B6792C661D7DCCFE00509CED /* YR_ArticleDetailLikedModel.m */,
+				B6792C671D7DCCFE00509CED /* YR_ArticleDetailModel.h */,
+				B6792C681D7DCCFE00509CED /* YR_ArticleDetailModel.m */,
+				B6792C691D7DCCFE00509CED /* YR_ArticleDetailRewardModel.h */,
+				B6792C6A1D7DCCFE00509CED /* YR_ArticleDetailRewardModel.m */,
+				B6792C6B1D7DCCFE00509CED /* YR_ArticleDetailUserModel.h */,
+				B6792C6C1D7DCCFE00509CED /* YR_ArticleDetailUserModel.m */,
+			);
+			path = ArticleDetailModel;
+			sourceTree = "<group>";
+		};
 		B6904FCE1D74822800B642CE /* EditorRecommendModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -996,21 +1216,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				492ED7781D7D8EE600E48ABE /* article.js in Resources */,
 				494A820C1D75B3A2003047A9 /* YR_ShowTableViewCell.xib in Resources */,
 				49D76A211D7914FA00A590B1 /* YR_ArtDetailImageCell.xib in Resources */,
+				49CAF37D1D7AD2C6003BF7F7 /* YR_DailyCollectionCell.xib in Resources */,
 				496BBC461D743E3700FC03D6 /* YR_EditorRecommendTableViewCell.xib in Resources */,
 				B6904FCD1D73228900B642CE /* YR_SetupPasswordViewController.xib in Resources */,
 				49309A771D7187B100E49044 /* YR_LoginViewController.xib in Resources */,
 				B61CC1E21D71393D004AAC55 /* LaunchScreen.storyboard in Resources */,
+				B6792BD71D7BC0E600509CED /* YR_ArtistTableViewCell.xib in Resources */,
+				496202D41D7D4E3300E225F0 /* YR_FansCollectionViewCell.xib in Resources */,
 				49CE19D51D7A72A8008A93CA /* YR_ForgetPasswordResetViewController.xib in Resources */,
 				49E910B31D7995CD001FB7FB /* YR_ArtDetailArtistCell.xib in Resources */,
+				B6792BAC1D7B27FB00509CED /* YR_FourSmallSectionsViewController.xib in Resources */,
 				49CE19D01D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.xib in Resources */,
+				B6792BB61D7B3CB600509CED /* YR_PurchaseCell.xib in Resources */,
+				B6792BD21D7BBF5600509CED /* YR_ArtistViewController.xib in Resources */,
 				494A81F01D7577F0003047A9 /* YR_ArticleCollectionViewCell.xib in Resources */,
+				496202F81D7D884800E225F0 /* type.js in Resources */,
+				49CAF3771D7ACF1E003BF7F7 /* YR_DailySelectionViewController.xib in Resources */,
 				B6792BA41D79DCB500509CED /* YR_ArtDetailCommentCell.xib in Resources */,
 				49E910BD1D79A722001FB7FB /* YR_ArtDetailRewardCell.xib in Resources */,
+				B6792BB11D7B392700509CED /* YR_PurchaseViewController.xib in Resources */,
+				496202CF1D7D49AA00E225F0 /* YR_FansViewController.xib in Resources */,
 				B690502B1D773CCC00B642CE /* YR_CycleImageDetailViewController.xib in Resources */,
 				B61CC1DF1D71393D004AAC55 /* Assets.xcassets in Resources */,
 				49309A811D71881100E49044 /* YR_ForgetPasswordViewController.xib in Resources */,
+				B6792BDC1D7BC98700509CED /* YR_ArtistCollectionViewCell.xib in Resources */,
 				491A2E1B1D76D4260042EE70 /* YR_TitleCollectionViewCell.xib in Resources */,
 				B6A30DA71D72AEC50014CB28 /* YR_LogupViewController.xib in Resources */,
 			);
@@ -1024,7 +1256,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61CC2971D7141CC004AAC55 /* YR_Network.m in Sources */,
+				B6792C581D7C4F1B00509CED /* YR_ArtistInUserModel.m in Sources */,
 				496BBC451D743E3700FC03D6 /* YR_EditorRecommendTableViewCell.m in Sources */,
+				B6792C5B1D7C4F1B00509CED /* YR_ArtistOutUserModel.m in Sources */,
 				B6792BA31D79DCB500509CED /* YR_ArtDetailCommentCell.m in Sources */,
 				B61CC2811D713A14004AAC55 /* SDWebImagePrefetcher.m in Sources */,
 				B6904FE01D74866900B642CE /* YR_EditorRecommendPicsModel.m in Sources */,
@@ -1034,11 +1268,15 @@
 				B61CC2601D713A14004AAC55 /* UIView+Frame.m in Sources */,
 				49893A7D1D7AC6B700B1A21A /* YR_DailySelectionModel.m in Sources */,
 				B61CC27F1D713A14004AAC55 /* SDWebImageDownloaderOperation.m in Sources */,
+				49CAF37C1D7AD2C6003BF7F7 /* YR_DailyCollectionCell.m in Sources */,
 				491A2E1A1D76D4260042EE70 /* YR_TitleCollectionViewCell.m in Sources */,
 				494A820B1D75B3A2003047A9 /* YR_ShowTableViewCell.m in Sources */,
+				B6792C5C1D7C4F1B00509CED /* YR_ArtistPicModel.m in Sources */,
 				497829891D78434D00CB60D5 /* YR_ArtDetailPicsModel.m in Sources */,
+				B6792C6D1D7DCCFE00509CED /* YR_ArticleDetailArticleModel.m in Sources */,
 				B61CC2861D713A14004AAC55 /* UIImageView+HighlightedWebCache.m in Sources */,
 				491A2E231D77A6CB0042EE70 /* YR_LikeListViewController.m in Sources */,
+				B6792BB51D7B3CB600509CED /* YR_PurchaseCell.m in Sources */,
 				B61CC2721D713A14004AAC55 /* MASLayoutConstraint.m in Sources */,
 				B6904FD11D7482DC00B642CE /* YR_EditorRecommendModel.m in Sources */,
 				B61CC26E1D713A14004AAC55 /* AFURLSessionManager.m in Sources */,
@@ -1049,6 +1287,7 @@
 				4949E1931D71772100CED5DE /* YR_NotificationViewController.m in Sources */,
 				B61CC2841D713A14004AAC55 /* UIImage+MultiFormat.m in Sources */,
 				497829861D78434D00CB60D5 /* YR_ArtDetailModel.m in Sources */,
+				49CAF3761D7ACF1E003BF7F7 /* YR_DailySelectionViewController.m in Sources */,
 				4949E18D1D7176FF00CED5DE /* YR_HomeViewController.m in Sources */,
 				B61CC2A11D714302004AAC55 /* YR_MainViewController.m in Sources */,
 				4949E1961D71772D00CED5DE /* YR_MineViewController.m in Sources */,
@@ -1058,7 +1297,9 @@
 				B61CC26A1D713A14004AAC55 /* AFNetworkReachabilityManager.m in Sources */,
 				4978298B1D78434D00CB60D5 /* YR_ArtDetailWorkModel.m in Sources */,
 				B61CC2911D714197004AAC55 /* YR_BaseViewController.m in Sources */,
+				B6792C711D7DCCFE00509CED /* YR_ArticleDetailUserModel.m in Sources */,
 				B6904FDA1D74863200B642CE /* YR_EditorRecommendAuthModel.m in Sources */,
+				B6792BCB1D7B3F2200509CED /* YR_PurchasePicModel.m in Sources */,
 				49D76A201D7914FA00A590B1 /* YR_ArtDetailImageCell.m in Sources */,
 				B61CC27C1D713A14004AAC55 /* SDWebImageCompat.m in Sources */,
 				B61CC2731D713A14004AAC55 /* MASViewAttribute.m in Sources */,
@@ -1066,17 +1307,26 @@
 				49309A801D71881100E49044 /* YR_ForgetPasswordViewController.m in Sources */,
 				49CE19CF1D7A6EC0008A93CA /* YR_ForgetPasswordInputCaptchaViewController.m in Sources */,
 				B690502A1D773CCC00B642CE /* YR_CycleImageDetailViewController.m in Sources */,
+				B6792C611D7DC88B00509CED /* YR_ArticleWebViewController.m in Sources */,
+				B6792BAB1D7B27FB00509CED /* YR_FourSmallSectionsViewController.m in Sources */,
+				B6792BC81D7B3F2200509CED /* YR_PurchaseExtralModel.m in Sources */,
 				B61CC2801D713A14004AAC55 /* SDWebImageManager.m in Sources */,
 				B61CC2641D713A14004AAC55 /* AppDelegate.m in Sources */,
+				B6792C571D7C4F1B00509CED /* YR_ArtistAuthModel.m in Sources */,
+				B6792C701D7DCCFE00509CED /* YR_ArticleDetailRewardModel.m in Sources */,
 				B6A30D9F1D72A5B00014CB28 /* YR_TextView.m in Sources */,
+				B6792C5A1D7C4F1B00509CED /* YR_ArtistModel.m in Sources */,
+				B6792BD11D7BBF5600509CED /* YR_ArtistViewController.m in Sources */,
 				B6904FF61D75DC7E00B642CE /* YR_ShowUserModel.m in Sources */,
 				B61CC2711D713A14004AAC55 /* MASConstraintMaker.m in Sources */,
+				B6792C591D7C4F1B00509CED /* YR_ArtistListModel.m in Sources */,
 				B6904FDD1D74865700B642CE /* YR_EditorRecommendPicModel.m in Sources */,
 				B61CC2771D713A14004AAC55 /* View+MASAdditions.m in Sources */,
 				494A81EF1D7577F0003047A9 /* YR_ArticleCollectionViewCell.m in Sources */,
 				4915AAE81D7405560083EDD7 /* YR_BaseNavigationController.m in Sources */,
 				B61CC2741D713A14004AAC55 /* MASViewConstraint.m in Sources */,
 				496BBC3A1D741E1C00FC03D6 /* YR_CycleImage.m in Sources */,
+				496202CE1D7D49AA00E225F0 /* YR_FansViewController.m in Sources */,
 				49E910B21D7995CD001FB7FB /* YR_ArtDetailArtistCell.m in Sources */,
 				494A82061D75A160003047A9 /* YR_NewArtsPicModel.m in Sources */,
 				B61CC26F1D713A14004AAC55 /* MASCompositeConstraint.m in Sources */,
@@ -1085,9 +1335,13 @@
 				B61CC26C1D713A14004AAC55 /* AFURLRequestSerialization.m in Sources */,
 				B6904FCC1D73228900B642CE /* YR_SetupPasswordViewController.m in Sources */,
 				B61CC26B1D713A14004AAC55 /* AFSecurityPolicy.m in Sources */,
+				B6792BCA1D7B3F2200509CED /* YR_PurchaseModel.m in Sources */,
+				496202D31D7D4E3300E225F0 /* YR_FansCollectionViewCell.m in Sources */,
 				49E910BC1D79A722001FB7FB /* YR_ArtDetailRewardCell.m in Sources */,
 				B61CC2881D713A14004AAC55 /* UIView+WebCacheOperation.m in Sources */,
+				B6792C6E1D7DCCFE00509CED /* YR_ArticleDetailLikedModel.m in Sources */,
 				496BBC411D74230200FC03D6 /* YR_CycleModel.m in Sources */,
+				B6792BB01D7B392700509CED /* YR_PurchaseViewController.m in Sources */,
 				B61CC2791D713A14004AAC55 /* MKAnnotationView+WebCache.m in Sources */,
 				4978298A1D78434D00CB60D5 /* YR_ArtDetailSizeModel.m in Sources */,
 				B61CC2871D713A14004AAC55 /* UIImageView+WebCache.m in Sources */,
@@ -1096,22 +1350,32 @@
 				B6904FD41D74849100B642CE /* YR_EditorRecommendListModel.m in Sources */,
 				B6904FF51D75DC7E00B642CE /* YR_ShowModel.m in Sources */,
 				B61CC2941D7141BC004AAC55 /* YR_DataBaseTool.m in Sources */,
+				B6792BDB1D7BC98700509CED /* YR_ArtistCollectionViewCell.m in Sources */,
 				B61CC1D41D71393D004AAC55 /* main.m in Sources */,
+				B6792C6F1D7DCCFE00509CED /* YR_ArticleDetailModel.m in Sources */,
 				B61CC27E1D713A14004AAC55 /* SDWebImageDownloader.m in Sources */,
 				B61CC2761D713A14004AAC55 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				B6792BC91D7B3F2200509CED /* YR_PurchaseListModel.m in Sources */,
 				49309A761D7187B100E49044 /* YR_LoginViewController.m in Sources */,
 				496BBC3E1D74208200FC03D6 /* YR_Ads.m in Sources */,
 				B61CC27A1D713A14004AAC55 /* NSData+ImageContentType.m in Sources */,
+				B6792BCD1D7B3F2200509CED /* YR_PurchaseSizeModel.m in Sources */,
 				B61CC2751D713A14004AAC55 /* NSArray+MASAdditions.m in Sources */,
+				B6792BD61D7BC0E600509CED /* YR_ArtistTableViewCell.m in Sources */,
 				494A82051D75A160003047A9 /* YR_NewArtsModel.m in Sources */,
+				B6792C5D1D7C4F1B00509CED /* YR_ArtistPicsModel.m in Sources */,
 				494A82041D75A160003047A9 /* YR_NewArtsListModel.m in Sources */,
 				497829871D78434D00CB60D5 /* YR_ArtDetailOwnerModel.m in Sources */,
+				B6792BDF1D7BD22A00509CED /* YR_ArtistTableView.m in Sources */,
 				B6904FE61D74885D00B642CE /* YR_EditorRecommendExtraModel.m in Sources */,
 				B61CC28B1D713A7C004AAC55 /* YR_BaseModel.m in Sources */,
+				B6792BCC1D7B3F2200509CED /* YR_PurchasePicsModel.m in Sources */,
+				B6792C5E1D7C4F1B00509CED /* YR_ArtistWorksModel.m in Sources */,
 				B6A30DA61D72AEC50014CB28 /* YR_LogupViewController.m in Sources */,
 				497829911D784ECD00CB60D5 /* YR_ArtDetailViewController.m in Sources */,
 				4949E1901D71770D00CED5DE /* YR_DiscoveryViewController.m in Sources */,
 				49893A7C1D7AC6B700B1A21A /* YR_DailySelectionListModel.m in Sources */,
+				B6792BC71D7B3F2200509CED /* YR_PurchaseAuthModel.m in Sources */,
 				B61CC2781D713A14004AAC55 /* ViewController+MASAdditions.m in Sources */,
 				494A82021D75A160003047A9 /* YR_NewArtsAuthModel.m in Sources */,
 				B6904FF41D75DC7E00B642CE /* YR_ShowListModel.m in Sources */,

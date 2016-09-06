@@ -54,6 +54,17 @@
     }
 }
 
+//- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+//    
+//    if (tabBarController.selectedIndex == 2 || tabBarController.selectedIndex == 3) {
+//        YR_LoginViewController *logVC = [[YR_LoginViewController alloc] init];
+//        YR_BaseNavigationController *nav = [[YR_BaseNavigationController alloc] initWithRootViewController:logVC];
+//        [self presentViewController:nav animated:YES completion:nil];
+//        return  NO;
+//    }
+//    return YES;
+//}
+
 
 
 @end

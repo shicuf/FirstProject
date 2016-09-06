@@ -137,10 +137,19 @@ static NSString * const artDetailArtistReuse = @"artDetailArtistReuse";
     [self.moreBtn setImage:[UIImage imageNamed:@"Detailmore"] forState:UIControlStateNormal];
     [self.moreBtn addTarget:self action:@selector(detailMoreAction:) forControlEvents:UIControlEventTouchUpInside];
     
+    UIView *separateLine = [[UIView alloc] init];
+    separateLine.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
+    [self.naviView addSubview:separateLine];
+    [separateLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(0.5);
+    }];
+    
     self.artDetailTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStyleGrouped];
     self.artDetailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.artDetailTableView.delegate = self;
     self.artDetailTableView.dataSource = self;
+    self.artDetailTableView.backgroundColor = [UIColor whiteColor];
     [self.artDetailTableView registerNib:[UINib nibWithNibName:@"YR_ArtDetailImageCell" bundle:nil] forCellReuseIdentifier:artDetailImageViewCellReuse];
     [self.artDetailTableView registerNib:[UINib nibWithNibName:@"YR_ArtDetailArtistCell" bundle:nil] forCellReuseIdentifier:artDetailArtistReuse];
     [self.artDetailTableView registerNib:[UINib nibWithNibName:@"YR_ArtDetailRewardCell" bundle:nil] forCellReuseIdentifier:@"YR_ArtDetailRewardCell"];

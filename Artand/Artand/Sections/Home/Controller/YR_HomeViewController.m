@@ -35,16 +35,13 @@
 #import "YR_CycleImageDetailViewController.h"
 #import "YR_LikeListViewController.h"
 #import "YR_ArtDetailViewController.h"
-
-
+#import "YR_ArticleWebViewController.h"
 
 static NSString * const recommendTableViewCellReuse = @"recommendTableViewReuse";
 static NSString * const articleCollectionViewCellReuse = @"articleCollectionViewCellReuse";
 static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
 
-
 @interface YR_HomeViewController () <UITableViewDelegate, UITableViewDataSource, YR_CycleImagesDelegate, YR_CycleImageDataSource, UICollectionViewDataSource, UICollectionViewDelegate>
-
 
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
 
@@ -233,12 +230,16 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
     }];
     
     CGFloat width = 30;
-    CGFloat height = 3;
+    CGFloat height = 2;
     self.tintView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     self.tintView.centerX = SCREEN_WIDTH / 6;
     self.tintView.centerY = self.titleCollectionView.height - 2.5;
     self.tintView.backgroundColor = [UIColor blackColor];
     [self.titleCollectionView addSubview:self.tintView];
+    
+    UIView *separateLine = [[UIView alloc] initWithFrame:CGRectMake(0, 43.5, SCREEN_WIDTH, 0.5)];
+    separateLine.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
+    [self.titleCollectionView addSubview:separateLine];
     
     UIView *statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
     statusView.backgroundColor = [UIColor whiteColor];
@@ -283,6 +284,7 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
         UIButton *listBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         listBtn.frame = CGRectMake(btnMargin + i * (btnWidth + btnMargin), 40, btnWidth, btnWidth);
         [listBtn setImage:[UIImage imageNamed:btnImageArr[i]] forState:UIControlStateNormal];
+        listBtn.tag = 10000 + i;
         [listBtn addTarget:self action:@selector(pushDetail:) forControlEvents:UIControlEventTouchUpInside];
         [self.likeListView addSubview:listBtn];
     }
@@ -295,9 +297,16 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
 }
 #pragma mark - 点赞榜点击方法
 - (void)pushDetail:(UIButton *)btn {
-#warning 点赞进去调用点击日榜周榜月榜
+    
     YR_LikeListViewController *likeListVc = [[YR_LikeListViewController alloc] init];
     [likeListVc setHidesBottomBarWhenPushed:YES];
+    if (btn.tag == 10000) {
+        likeListVc.index = 0;
+    } else if (btn.tag == 10001) {
+        likeListVc.index = 1;
+    } else if (btn.tag == 10002) {
+        likeListVc.index = 2;
+    }
     [self.navigationController pushViewController:likeListVc animated:YES];
 }
 
@@ -331,7 +340,6 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
         NSString *fullStr = [NSString stringWithFormat:@"%@%@!app.c540.webp", @"http://work.artand.cn/", picStr];
         // http://work.artand.cn/6az/lsz_-PzBcWBRF8Bpvudome4WLG9Y.jpg!app.c540.webp
         NSURL *picUrl = [NSURL URLWithString:fullStr];
-        //    [[SDWebImageDownloader sharedDownloader] setValue:@"image/webp" forHTTPHeaderField:@"Content-Type"];
         [cell.picBtn sd_setImageWithURL:picUrl forState:UIControlStateNormal];
         
         NSString *uidStr = self.editorRecommendModel.list[indexPath.row].user.uid;
@@ -383,7 +391,6 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
             [artDetailVC setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:artDetailVC animated:YES];
         };
-        
         return cell;
     } else {
         YR_ShowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:showTableViewCellReuse];
@@ -408,7 +415,15 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 进入艺术家个人主页
     
+    // 点击展览页的cell
+    if (tableView == self.showTableView) {
+        YR_ArticleWebViewController *articleWebViewVC = [[YR_ArticleWebViewController alloc] init];
+        articleWebViewVC.row_id = self.showModel.list[indexPath.row].row_id;
+        articleWebViewVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:articleWebViewVC animated:YES];
+    }
     
 }
 

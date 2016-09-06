@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YR_CycleImageDetailViewController">
@@ -22,7 +22,6 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnG-ss-pka">
                             <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="LTA-BE-lVd"/>
                             </constraints>
@@ -32,7 +31,6 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hB2-3X-gNO">
                             <rect key="frame" x="0.0" y="20" width="44" height="44"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="w5c-cq-4ZC"/>
                                 <constraint firstAttribute="height" constant="44" id="way-xh-pRT"/>
@@ -44,22 +42,30 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulA-HG-Ps5">
                             <rect key="frame" x="331" y="20" width="44" height="44"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="KWZ-oG-jaN"/>
                                 <constraint firstAttribute="height" constant="44" id="e5J-yp-kCH"/>
                             </constraints>
                             <state key="normal" image="Detailmore"/>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8o-Qv-2Ob">
+                            <rect key="frame" x="0.0" y="63.5" width="375" height="0.5"/>
+                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="qzm-Uv-a9X"/>
+                            </constraints>
+                        </view>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="wnG-ss-pka" firstAttribute="leading" secondItem="9HS-YG-sZ1" secondAttribute="leading" id="6H3-JP-4e6"/>
+                        <constraint firstItem="ulA-HG-Ps5" firstAttribute="leading" secondItem="A8o-Qv-2Ob" secondAttribute="trailing" constant="-44" id="ArY-Da-Nrf"/>
+                        <constraint firstAttribute="bottom" secondItem="A8o-Qv-2Ob" secondAttribute="bottom" id="FbU-GE-aTv"/>
                         <constraint firstAttribute="height" constant="64" id="OBZ-73-CEY"/>
                         <constraint firstItem="hB2-3X-gNO" firstAttribute="leading" secondItem="9HS-YG-sZ1" secondAttribute="leading" id="Oqo-Jh-kj4"/>
                         <constraint firstAttribute="bottom" secondItem="ulA-HG-Ps5" secondAttribute="bottom" id="PhU-VS-t1D"/>
                         <constraint firstAttribute="trailing" secondItem="wnG-ss-pka" secondAttribute="trailing" id="RFx-2y-1mz"/>
+                        <constraint firstItem="A8o-Qv-2Ob" firstAttribute="leading" secondItem="9HS-YG-sZ1" secondAttribute="leading" id="S1U-Hx-qhL"/>
                         <constraint firstAttribute="bottom" secondItem="wnG-ss-pka" secondAttribute="bottom" id="S8h-2d-7X5"/>
                         <constraint firstAttribute="trailing" secondItem="ulA-HG-Ps5" secondAttribute="trailing" id="Stw-dV-fH8"/>
                         <constraint firstAttribute="bottom" secondItem="hB2-3X-gNO" secondAttribute="bottom" id="hzz-7R-dgG"/>
@@ -67,11 +73,9 @@
                 </view>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPw-9B-9Dl">
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                 </webView>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="wPw-9B-9Dl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4XV-lr-3C3"/>

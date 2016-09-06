@@ -41,6 +41,14 @@ static NSString * const likeListCellReuse = @"likeListCellReuse";
 
 @implementation YR_LikeListViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+#warning  月榜点击方法实现 可是颜色没有变
+    
+    [self.backScrollView setContentOffset:CGPointMake(self.index * SCREEN_WIDTH, 0) animated:YES];
+    [self collectionView:self.titleCollectionView didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:self.index inSection:0]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -161,21 +169,11 @@ static NSString * const likeListCellReuse = @"likeListCellReuse";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     YR_EditorRecommendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:likeListCellReuse];
-        
-    if (tableView == self.dayTableView) {
-        cell.btnBlock = ^{
-            [self pushDetailViewControllerWithModel:self.dayModel indexPath:indexPath];
-        };
-        return [self cell:cell YR_EditorRecommendPicModeltransferCellDataWithModel:self.dayModel cellForRowAtIndexPath:indexPath];
+    
+    if (tableView == self.dayTableView) {        return [self cell:cell YR_EditorRecommendPicModeltransferCellDataWithModel:self.dayModel cellForRowAtIndexPath:indexPath];
     } else if (tableView == self.weekTableView) {
-        cell.btnBlock = ^{
-            [self pushDetailViewControllerWithModel:self.weekModel indexPath:indexPath];
-        };
         return [self cell:cell YR_EditorRecommendPicModeltransferCellDataWithModel:self.weekModel cellForRowAtIndexPath:indexPath];
     } else {
-        cell.btnBlock = ^{
-            [self pushDetailViewControllerWithModel:self.monthModel indexPath:indexPath];
-        };
         return [self cell:cell YR_EditorRecommendPicModeltransferCellDataWithModel:self.monthModel cellForRowAtIndexPath:indexPath];
     }
 }
@@ -192,6 +190,10 @@ static NSString * const likeListCellReuse = @"likeListCellReuse";
 #pragma mark - 返回赋值完的cell
 - (YR_EditorRecommendTableViewCell *)cell:(YR_EditorRecommendTableViewCell *)cell YR_EditorRecommendPicModeltransferCellDataWithModel:(YR_EditorRecommendModel *)model cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    cell.btnBlock = ^{
+        [self pushDetailViewControllerWithModel:model indexPath:indexPath];
+    };
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSString *picStr = model.list[indexPath.row].pic.pid;
     NSString *fullStr = [NSString stringWithFormat:@"%@%@!app.c540.webp", @"http://work.artand.cn/", picStr];
@@ -202,7 +204,7 @@ static NSString * const likeListCellReuse = @"likeListCellReuse";
     NSString *versionStr = model.list[indexPath.row].user.version;
     NSString *iconStr = [[[@"http://head.artand.cn" stringByAppendingPathComponent:uidStr] stringByAppendingPathComponent:versionStr] stringByAppendingPathComponent:@"180"];
     [cell.iconBtn sd_setImageWithURL:[NSURL URLWithString:iconStr] forState:UIControlStateNormal];
-
+    
     
     cell.imageNameLabel.text = model.list[indexPath.row].name;
     cell.artistNameLabel.text = model.list[indexPath.row].user.uname;
@@ -238,30 +240,28 @@ static NSString * const likeListCellReuse = @"likeListCellReuse";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-        CGFloat titleLabelHeight = 77;
-        return SCREEN_WIDTH + titleLabelHeight;
+    CGFloat titleLabelHeight = 77;
+    return SCREEN_WIDTH + titleLabelHeight;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView  {
     
-    if (scrollView == self.backScrollView) {
-        CGFloat cellWidth = (SCREEN_WIDTH - 88) / 3;
-        self.tintView.centerX = cellWidth / 2 + self.backScrollView.contentOffset.x * cellWidth / SCREEN_WIDTH;
-    }
+    CGFloat cellWidth = (SCREEN_WIDTH - 88) / 3;
+    self.tintView.centerX = cellWidth / 2 + self.backScrollView.contentOffset.x * cellWidth / SCREEN_WIDTH;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
-    if (scrollView == self.backScrollView) {
-        NSInteger index = self.backScrollView.contentOffset.x / SCREEN_WIDTH;
-        for (NSInteger i = 0; i < self.titleArray.count; i++) {
-            if (i == index) {
-                [self collectionView:self.titleCollectionView didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
-            } else {
-                [self collectionView:self.titleCollectionView didDeselectItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
-            }
+    
+    NSInteger index = self.backScrollView.contentOffset.x / SCREEN_WIDTH;
+    for (NSInteger i = 0; i < self.titleArray.count; i++) {
+        if (i == index) {
+            [self collectionView:self.titleCollectionView didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+        } else {
+            [self collectionView:self.titleCollectionView didDeselectItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
         }
     }
+    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -273,34 +273,30 @@ static NSString * const likeListCellReuse = @"likeListCellReuse";
     
     YR_TitleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"reuse" forIndexPath:indexPath];
     cell.titleLabel.text = self.titleArray[indexPath.row];
-    cell.titleLabel.textColor = [UIColor lightGrayColor];
-    [self collectionView:self.titleCollectionView didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    cell.titleLabel.textColor = [UIColor darkGrayColor];
+    [self collectionView:self.titleCollectionView didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:self.index inSection:0]];
     
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (collectionView == self.titleCollectionView) {
-        CGFloat offsetX = indexPath.row * SCREEN_WIDTH;
-        [self.backScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
-        
-        YR_TitleCollectionViewCell * cell = (YR_TitleCollectionViewCell *)[self.titleCollectionView cellForItemAtIndexPath:indexPath];
-        cell.titleLabel.textColor = [UIColor blackColor];
-        for (NSInteger i = 0; i < self.titleArray.count; i++) {
-            if (i != indexPath.row) {
-                [self collectionView:self.titleCollectionView didDeselectItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
-            }
+    CGFloat offsetX = indexPath.row * SCREEN_WIDTH;
+    [self.backScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+    
+    YR_TitleCollectionViewCell * cell = (YR_TitleCollectionViewCell *)[self.titleCollectionView cellForItemAtIndexPath:indexPath];
+    [cell.titleLabel setTextColor:[UIColor blackColor]];
+    for (NSInteger i = 0; i < self.titleArray.count; i++) {
+        if (i != indexPath.row) {
+            [self collectionView:self.titleCollectionView didDeselectItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
         }
     }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (collectionView == self.titleCollectionView) {
-        YR_TitleCollectionViewCell * cell = (YR_TitleCollectionViewCell *)[self.titleCollectionView cellForItemAtIndexPath:indexPath];
-        cell.titleLabel.textColor = [UIColor lightGrayColor];
-    }
+    YR_TitleCollectionViewCell * cell = (YR_TitleCollectionViewCell *)[self.titleCollectionView cellForItemAtIndexPath:indexPath];
+    cell.titleLabel.textColor = [UIColor darkGrayColor];
 }
 
 @end

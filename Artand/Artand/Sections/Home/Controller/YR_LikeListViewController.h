@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface YR_LikeListViewController : UIViewController
+
+@property (nonatomic, assign) NSInteger index;
 
 @end

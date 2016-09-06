@@ -9,6 +9,11 @@
 #import "YR_DiscoveryViewController.h"
 #import "YR_Macro.h"
 #import "UIView+Frame.h"
+#import "YR_DailySelectionViewController.h"
+#import "YR_FourSmallSectionsViewController.h"
+#import "YR_PurchaseViewController.h"
+#import "YR_ArtistViewController.h"
+#import "YR_FansViewController.h"
 
 @interface YR_DiscoveryViewController ()
 
@@ -35,6 +40,8 @@
     
     [self setupUI];
 }
+
+
 
 - (void)setupUI {
     
@@ -133,37 +140,59 @@
 
 - (void)pushDailySelection:(UITapGestureRecognizer *)tap {
     
-    
+    YR_DailySelectionViewController *dailySelectionVC = [[YR_DailySelectionViewController alloc] init];
+    dailySelectionVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:dailySelectionVC animated:YES];
 }
 
 - (void)pushPurchase:(UITapGestureRecognizer *)tap {
     
-    
+    YR_PurchaseViewController *purchaseVC = [[YR_PurchaseViewController alloc] init];
+    purchaseVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:purchaseVC animated:YES];
 }
 
 - (void)pushArtist:(UITapGestureRecognizer *)tap {
     
-    
+    YR_ArtistViewController *artistVC = [[YR_ArtistViewController alloc] init];
+    artistVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:artistVC animated:YES];
 }
 
 - (void)pushFans:(UITapGestureRecognizer *)tap {
     
+    YR_FansViewController *fansVC = [[YR_FansViewController alloc] init];
+    fansVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:fansVC animated:YES];
 }
 
 - (void)pushPerson:(UITapGestureRecognizer *)tap {
     
+    [self fourSectionsActionWithTitle:@"人物" type:@"personage"];
 }
 
 - (void)pushReading:(UITapGestureRecognizer *)tap {
     
+    [self fourSectionsActionWithTitle:@"艺术阅读" type:@"reading"];
 }
 
 - (void)pushCollect:(UITapGestureRecognizer *)tap {
     
+    [self fourSectionsActionWithTitle:@"收藏与投资" type:@"invest"];
 }
 
 - (void)pushAppreciate:(UITapGestureRecognizer *)tap {
     
+    [self fourSectionsActionWithTitle:@"艺术鉴赏" type:@"enjoy"];
+}
+
+- (void)fourSectionsActionWithTitle:(NSString *)title type:(NSString *)type {
+    
+    YR_FourSmallSectionsViewController *fourSmallSectionsVC = [[YR_FourSmallSectionsViewController alloc] init];
+    fourSmallSectionsVC.typeStr = type;
+    fourSmallSectionsVC.titleStr = title;
+    fourSmallSectionsVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:fourSmallSectionsVC animated:YES];
 }
 
 @end
