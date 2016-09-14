@@ -14,6 +14,7 @@
 #import "YR_LoginViewController.h"
 #import "YR_BaseNavigationController.h"
 #import "YR_TabBar.h"
+#import "YR_Macro.h"
 
 @interface YR_MainViewController () <UITabBarControllerDelegate>
 
@@ -47,23 +48,27 @@
 #pragma mark - 选择tabBarItem的代理方法
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
     
-    if (tabBarController.selectedIndex == 2 || tabBarController.selectedIndex == 3) {
+    
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    
+    
+    NSString *session_id = [[NSUserDefaults standardUserDefaults] objectForKey:@"session_id"];
+    
+    if ([viewController.childViewControllers[0] isKindOfClass:[YR_NotificationViewController class]] || [viewController.childViewControllers[0] isKindOfClass:[YR_MineViewController class]]) {
+        
+        if (session_id) {
+            return YES;
+        }
+        
         YR_LoginViewController *logVC = [[YR_LoginViewController alloc] init];
         YR_BaseNavigationController *nav = [[YR_BaseNavigationController alloc] initWithRootViewController:logVC];
         [self presentViewController:nav animated:YES completion:nil];
+        return NO;
     }
+    return YES;
 }
-
-//- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-//    
-//    if (tabBarController.selectedIndex == 2 || tabBarController.selectedIndex == 3) {
-//        YR_LoginViewController *logVC = [[YR_LoginViewController alloc] init];
-//        YR_BaseNavigationController *nav = [[YR_BaseNavigationController alloc] initWithRootViewController:logVC];
-//        [self presentViewController:nav animated:YES completion:nil];
-//        return  NO;
-//    }
-//    return YES;
-//}
 
 
 

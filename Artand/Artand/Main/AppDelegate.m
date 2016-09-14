@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "YR_Macro.h"
+#import "YR_EnterAnimationViewController.h"
+#import "YR_GuideViewController.h"
 #import "YR_MainViewController.h"
 
 @interface AppDelegate ()
@@ -21,8 +22,11 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+        self.window.rootViewController = [[YR_EnterAnimationViewController alloc] init];
+//    self.window.rootViewController = [[YR_MainViewController alloc] init];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [YR_MainViewController new];
+    
+    
     return YES;
 }
 

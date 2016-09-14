@@ -10,4 +10,6 @@
 
 @interface YR_BaseNavigationController : UINavigationController
 
+@property (nonatomic, strong) UIPanGestureRecognizer *pan;
+
 @end

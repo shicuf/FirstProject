@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="YR_PurchaseCell">
+            <rect key="frame" x="0.0" y="0.0" width="166" height="162"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="166" height="162"/>
+                <subviews>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihY-ad-dCJ">
+                        <rect key="frame" x="0.0" y="0.0" width="166" height="162"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="imageBtnAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="SKS-WV-G0M"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8X-8j-0fS">
+                        <rect key="frame" x="8" y="133" width="150" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Szl-U2-yGn"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Z8X-8j-0fS" secondAttribute="bottom" constant="9.5" id="KiO-NB-qDT"/>
+                <constraint firstItem="ihY-ad-dCJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="P6d-Ul-S4q"/>
+                <constraint firstAttribute="trailing" secondItem="Z8X-8j-0fS" secondAttribute="trailing" constant="8" id="c23-2Q-S0f"/>
+                <constraint firstAttribute="bottom" secondItem="ihY-ad-dCJ" secondAttribute="bottom" id="euJ-q5-g8c"/>
+                <constraint firstAttribute="trailing" secondItem="ihY-ad-dCJ" secondAttribute="trailing" id="g5d-Tc-j9U"/>
+                <constraint firstItem="Z8X-8j-0fS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="p4L-HQ-vsI"/>
+                <constraint firstItem="ihY-ad-dCJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="z2x-76-Cj2"/>
+            </constraints>
+            <size key="customSize" width="166" height="162"/>
+            <connections>
+                <outlet property="imageBtn" destination="ihY-ad-dCJ" id="V1x-rb-57u"/>
+                <outlet property="priceLabel" destination="Z8X-8j-0fS" id="FKa-Yr-lqY"/>
+            </connections>
+            <point key="canvasLocation" x="428" y="399"/>
+        </collectionViewCell>
+    </objects>
+</document>

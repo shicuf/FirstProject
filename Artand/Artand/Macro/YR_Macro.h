@@ -13,7 +13,9 @@
 
 // 调试打印
 #ifdef DEBUG
-#define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+//#define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define YRLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
 #else
 #define NSLog(...)
 #endif
@@ -31,7 +33,9 @@
 #define SCREEN_WIDTH        SCREEN_SIZE.width
 #define SCREEN_HEIGHT       SCREEN_SIZE.height
 
-
+#define NAVI_HEIGHT 64
+#define TAB_HEIGHT 49
+#define STATUSBAR_HEIGHT 20
 
 
 #endif /* YR_Macro_h */

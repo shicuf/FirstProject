@@ -8,7 +8,7 @@
 
 #import "YR_BaseViewController.h"
 
-@interface YR_BaseViewController () <UITableViewDelegate>
+@interface YR_BaseViewController () 
 
 @end
 

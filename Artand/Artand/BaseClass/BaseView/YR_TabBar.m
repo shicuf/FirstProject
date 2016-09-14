@@ -13,10 +13,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-//        self.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"sharebar"]];
         [self setBackgroundImage:[UIImage imageNamed:@"sharebar"]];
         self.shadowImage = [UIImage new];
-//        self.tintColor = [UIColor colorWithRed:254.0/255.0 green:59.0/255.0 blue:108.0/255.0 alpha:255.0/255.0];
     }
     return self;
 }

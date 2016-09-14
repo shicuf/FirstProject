@@ -22,13 +22,13 @@
     // 获得系统调用代理
     id target = self.interactivePopGestureRecognizer.delegate;
     // 自定义全屏手势 NSSelectorFromString() 这个方法略屌
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:target action:NSSelectorFromString(@"handleNavigationTransition:")];
+    self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:target action:NSSelectorFromString(@"handleNavigationTransition:")];
     // 设置代理
-    pan.delegate = self;
+    self.pan.delegate = self;
     // 关闭系统手势
     self.interactivePopGestureRecognizer.enabled = NO;
     // 添加手势
-    [self.view addGestureRecognizer:pan];
+    [self.view addGestureRecognizer:self.pan];
 }
 // 什么时候调用：每次触发手势之前都会询问下代理，是否触发。
 // 作用：拦截手势触发
