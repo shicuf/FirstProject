@@ -13,7 +13,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    
+    [super awakeFromNib];
     self.iconBtn.layer.cornerRadius = 22;
     self.iconBtn.layer.masksToBounds = YES;
     self.iconBtn.userInteractionEnabled = NO;

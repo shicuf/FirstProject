@@ -23,6 +23,8 @@
     [self setupUI];
 }
 
+
+
 - (void)setupUI {
     
     UIView *naviView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVI_HEIGHT)];

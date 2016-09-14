@@ -11,7 +11,9 @@
 @implementation YR_ArticleCollectionViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    
+    
+    [super awakeFromNib];
 }
 
 @end

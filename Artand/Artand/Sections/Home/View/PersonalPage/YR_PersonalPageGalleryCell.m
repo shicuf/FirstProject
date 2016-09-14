@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     self.coverBtn.userInteractionEnabled = NO;
+    [super awakeFromNib];
 }
 
 @end

@@ -14,6 +14,7 @@
     
     self.iconBtn.layer.cornerRadius = 20;
     self.iconBtn.layer.masksToBounds = YES;
+    [super awakeFromNib];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
