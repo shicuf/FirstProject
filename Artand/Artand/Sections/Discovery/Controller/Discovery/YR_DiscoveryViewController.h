@@ -6,8 +6,8 @@
 //  Copyright © 2016年 kaleidoscope. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YR_BaseViewController.h"
 
-@interface YR_DiscoveryViewController : UIViewController
+@interface YR_DiscoveryViewController : YR_BaseViewController
 
 @end

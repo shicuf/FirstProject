@@ -15,12 +15,14 @@
 #import "YR_DailySelectionListModel.h"
 #import "YR_CycleImageDetailViewController.h"
 #import "MJRefresh.h"
+#import "YR_RefreshGiHeaderTool.h"
 
 @interface YR_DailySelectionViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) YR_DailySelectionModel *dailySelectionModel;
 @property (weak, nonatomic) IBOutlet UITableView *dailySelectionTableView;
 @property (nonatomic, strong) NSMutableArray<YR_DailySelectionListModel *> *dailySelectionListModelArr;
+@property (nonatomic, strong) YR_RefreshGiHeaderTool *dailySelectionCollectionViewHeaderTool;
 
 @end
 
@@ -53,7 +55,7 @@
 
 - (void)refreshData {
     
-    self.dailySelectionTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.dailySelectionCollectionViewHeaderTool = [[YR_RefreshGiHeaderTool alloc] initWithScrollView:self.dailySelectionTableView requestBlock:^{
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         [manager POST:@"http://android.artand.cn/event/index?last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             self.dailySelectionModel = [YR_DailySelectionModel modelWithDict:responseObject];

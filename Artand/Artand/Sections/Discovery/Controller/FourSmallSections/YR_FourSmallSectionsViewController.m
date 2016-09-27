@@ -17,6 +17,8 @@
 #import "YR_ArticleWebViewController.h"
 #import "MJRefresh.h"
 #import "YR_PersonalPageViewController.h"
+#import "NSString+YR_TimeInterval.h"
+#import "YR_RefreshGiHeaderTool.h"
 
 
 @interface YR_FourSmallSectionsViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -24,6 +26,8 @@
 @property (nonatomic, strong) YR_ShowModel *fourSectionsModel;
 @property (weak, nonatomic) IBOutlet UITableView *fourSelectionsTableView;
 @property (nonatomic, strong) NSMutableArray<YR_ShowListModel *> *showListModelArr;
+
+@property (nonatomic, strong) YR_RefreshGiHeaderTool *fourSelectionsTableViewHeaderTool;
 
 @end
 
@@ -57,7 +61,7 @@
 
 - (void)refreshData {
     
-    self.fourSelectionsTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.fourSelectionsTableViewHeaderTool = [[YR_RefreshGiHeaderTool alloc] initWithScrollView:self.fourSelectionsTableView requestBlock:^{
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         NSString *urlStr = [NSString stringWithFormat:@"http://ios1.artand.cn/discover/news?type=%@&last_id=0", self.typeStr];
         [manager POST:urlStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -121,6 +125,12 @@
         personalPageVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:personalPageVC animated:YES];
     };
+    
+    
+    // 获取到更新的时间戳
+    NSString *timeStr = self.showListModelArr[indexPath.row].mtime;
+    NSString *newStr = [timeStr updateTimeForTimeIntervalString:timeStr];
+    cell.timeLabel.text = newStr;
     
     return cell;
 }

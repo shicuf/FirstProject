@@ -53,12 +53,9 @@
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     
-    
-    NSString *session_id = [[NSUserDefaults standardUserDefaults] objectForKey:@"session_id"];
-    
     if ([viewController.childViewControllers[0] isKindOfClass:[YR_NotificationViewController class]] || [viewController.childViewControllers[0] isKindOfClass:[YR_MineViewController class]]) {
         
-        if (session_id) {
+        if (SESSION_ID) {
             return YES;
         }
         

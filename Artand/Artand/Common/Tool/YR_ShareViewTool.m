@@ -91,7 +91,7 @@
         [btn setImage:[UIImage imageNamed:shareBtnArr[i]] forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:shareHighlightedBtnArr[i]] forState:UIControlStateHighlighted];
         [downScrollView addSubview:btn];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 85, 65, 20)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 85, 100, 20)];
         label.centerX = btn.centerX;
         label.text = downTitleArr[i];
         label.textColor = [UIColor darkGrayColor];

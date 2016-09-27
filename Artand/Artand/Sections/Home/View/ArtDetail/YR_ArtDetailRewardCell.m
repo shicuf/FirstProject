@@ -21,6 +21,7 @@
 - (void)awakeFromNib {
     // Initialization code
     [super awakeFromNib];
+
     self.rewardBtn.layer.cornerRadius = 5;
     self.rewardBtn.layer.masksToBounds = YES;
 }

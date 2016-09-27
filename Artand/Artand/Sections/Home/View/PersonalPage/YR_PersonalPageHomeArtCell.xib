@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -16,9 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="515" height="560"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FwX-ZH-jQA">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FwX-ZH-jQA">
                         <rect key="frame" x="0.0" y="0.0" width="515" height="515"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="FwX-ZH-jQA" secondAttribute="height" id="N2K-lG-Ucq"/>
@@ -26,14 +25,12 @@
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient_bg" translatesAutoresizingMaskIntoConstraints="NO" id="nxh-ie-eq4">
                         <rect key="frame" x="0.0" y="405" width="515" height="110"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="110" id="cu8-Bz-Kyb"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqZ-RZ-HNp">
                         <rect key="frame" x="15" y="455" width="258" height="30"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="TLT-4h-pcn"/>
                         </constraints>
@@ -43,7 +40,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJC-Ke-Vvg">
                         <rect key="frame" x="15" y="485" width="258" height="20"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="tkD-JP-3AY"/>
                         </constraints>
@@ -56,7 +52,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="price" translatesAutoresizingMaskIntoConstraints="NO" id="UvT-qt-Gdf">
                                 <rect key="frame" x="15" y="9" width="17" height="17"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="Ke9-7I-cAi"/>
                                     <constraint firstAttribute="width" constant="17" id="u3q-Lj-8yM"/>
@@ -64,7 +59,6 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzA-dB-P5A">
                                 <rect key="frame" x="36" y="9" width="70" height="17"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="C0P-uG-oUf"/>
                                     <constraint firstAttribute="height" constant="17" id="L5z-Dd-GsE"/>
@@ -74,7 +68,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="0.21941790799999999" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mzA-dB-P5A" firstAttribute="centerY" secondItem="UvT-qt-Gdf" secondAttribute="centerY" id="98D-7f-WOz"/>
@@ -86,7 +79,6 @@
                         </constraints>
                     </view>
                 </subviews>
-                <animations/>
                 <constraints>
                     <constraint firstItem="57H-3N-dfD" firstAttribute="top" secondItem="nxh-ie-eq4" secondAttribute="top" constant="55" id="1I9-FA-E4f"/>
                     <constraint firstAttribute="trailing" secondItem="FwX-ZH-jQA" secondAttribute="trailing" id="3Ob-od-9bp"/>
@@ -110,7 +102,6 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <animations/>
             <connections>
                 <outlet property="descLabel" destination="VJC-Ke-Vvg" id="YYn-jw-bL8"/>
                 <outlet property="imageBtn" destination="FwX-ZH-jQA" id="BjY-du-VW5"/>
@@ -118,7 +109,7 @@
                 <outlet property="priceLabel" destination="mzA-dB-P5A" id="1qq-S0-Ilm"/>
                 <outlet property="priceView" destination="57H-3N-dfD" id="ITF-dk-3WJ"/>
             </connections>
-            <point key="canvasLocation" x="428.5" y="300.5"/>
+            <point key="canvasLocation" x="218.5" y="229.5"/>
         </tableViewCell>
     </objects>
     <resources>

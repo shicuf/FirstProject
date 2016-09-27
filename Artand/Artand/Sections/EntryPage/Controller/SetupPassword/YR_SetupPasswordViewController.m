@@ -9,6 +9,7 @@
 #import "YR_SetupPasswordViewController.h"
 #import "YR_Button.h"
 #import "YR_Macro.h"
+#import "MozTopAlertView.h"
 
 @interface YR_SetupPasswordViewController ()
 
@@ -49,6 +50,13 @@
         self.setupPasswordTextField.text = self.phoneStr;
         self.confirmPasswordTextField.text = self.captchaStr;
         YRLog(@"success");
+        [MozTopAlertView showWithType:MozAlertTypeSuccess text:@"注册成功" parentView:self.view];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        });
+        
     } else {
         
         YRLog(@"not match");

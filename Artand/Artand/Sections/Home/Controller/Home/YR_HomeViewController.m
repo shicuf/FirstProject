@@ -41,12 +41,14 @@
 #import "YR_PersonalPageViewController.h"
 #import "MJRefresh.h"
 #import "NSString+YR_TimeInterval.h"
+#import "YR_RefreshGiHeaderTool.h"
+#import "YR_SearchViewController.h"
 
 static NSString * const recommendTableViewCellReuse = @"recommendTableViewReuse";
 static NSString * const articleCollectionViewCellReuse = @"articleCollectionViewCellReuse";
 static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
 
-@interface YR_HomeViewController () <UITableViewDelegate, UITableViewDataSource, YR_CycleImagesDelegate, YR_CycleImageDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate>
+@interface YR_HomeViewController () <UITableViewDelegate, UITableViewDataSource, /*YR_CycleImagesDelegate, YR_CycleImageDataSource,*/ UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
 
@@ -75,15 +77,13 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
 @property (nonatomic, strong) NSMutableArray<YR_NewArtsListModel *> *a_newArtsListModelArr;
 @property (nonatomic, strong) NSMutableArray<YR_ShowListModel *> *showListModelArr;
 
+@property (nonatomic, strong) YR_RefreshGiHeaderTool *homeTableViewHeaderTool;
+@property (nonatomic, strong) YR_RefreshGiHeaderTool *showTableViewHeaderTool;
+@property (nonatomic, strong) YR_RefreshGiHeaderTool *articleCollectionViewHeaderTool;
+
 @end
 
 @implementation YR_HomeViewController
-
-//- (void)viewWillAppear:(BOOL)animated {
-//    
-//    [super viewWillAppear:animated];
-//    [self.homeTableView.mj_footer beginRefreshing];
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -105,24 +105,24 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
      *
      *  @return
      */
-    [self.manager GET:@"http://ios1.artand.cn/discover/home/rank" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.cycleModel = [YR_CycleModel modelWithDict:responseObject];
-
-        NSMutableArray *arr = [NSMutableArray array];
-        for (int i = 0 ; i < self.cycleModel.ads.count; i++) {
-            NSString *pic = self.cycleModel.ads[i].pic;
-            [arr addObject:pic];
-        }
-        _picArr = arr;
-        NSString *firstImage = [_picArr firstObject];
-        NSString *lastImage = [_picArr lastObject];
-        [_picArr insertObject:lastImage atIndex:0];
-        [_picArr addObject:firstImage];
-        self.cycleImage.array = _picArr;
-        [self.homeTableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
-    }];
+//    [self.manager GET:@"http://ios1.artand.cn/discover/home/rank" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        self.cycleModel = [YR_CycleModel modelWithDict:responseObject];
+//
+//        NSMutableArray *arr = [NSMutableArray array];
+//        for (int i = 0 ; i < self.cycleModel.ads.count; i++) {
+//            NSString *pic = self.cycleModel.ads[i].pic;
+//            [arr addObject:pic];
+//        }
+//        _picArr = arr;
+//        NSString *firstImage = [_picArr firstObject];
+//        NSString *lastImage = [_picArr lastObject];
+//        [_picArr insertObject:lastImage atIndex:0];
+//        [_picArr addObject:firstImage];
+//        self.cycleImage.array = _picArr;
+//        [self.homeTableView reloadData];
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"%@", error);
+//    }];
     /**
      *  编辑推荐请求
      *
@@ -184,47 +184,9 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
     [self setupTitleView];
     [self setupBackScrollView];
     [self setupHomeTableView];
-    [self setupCycleImageView];
+//    [self setupCycleImageView];
     [self setupArticleCollectionView];
     [self setupShowTableView];
-}
-#pragma mark - 设置背景滚动视图 scrollView
-- (void)setupBackScrollView {
-    
-    CGFloat naviHeight = 64;
-    CGFloat titleHeight = 30;
-    CGFloat tabBarHeight = 49;
-    self.backScrollView = [[YR_ScrollView alloc] initWithFrame:CGRectMake(0, naviHeight + titleHeight, SCREEN_WIDTH, SCREEN_HEIGHT - naviHeight - titleHeight - tabBarHeight)];
-    [self.view addSubview:self.backScrollView];
-    self.backScrollView.backgroundColor = [UIColor whiteColor];
-    self.backScrollView.delegate = self;
-    self.backScrollView.showsHorizontalScrollIndicator = NO;
-    self.backScrollView.pagingEnabled = YES;
-    self.backScrollView.contentSize = CGSizeMake(3 * SCREEN_WIDTH, 0);
-}
-#pragma mark - 设置轮播图
-- (void)setupCycleImageView {
-    
-    self.cycleImage = [[YR_CycleImage alloc] initWithFrame:self.cycleBackView.frame];
-    [self.cycleBackView addSubview:self.cycleImage];
-    self.cycleImage.delegate = self;
-    self.cycleImage.dataSource = self;
-}
-#pragma mark - 轮播图回调赋值
-- (void)handleDataWithObject:(id)objc cell:(__kindof UICollectionViewCell *)cell {
-    
-    YRCycleImagesCell *imageCell = cell;
-    [imageCell.cycleImageView sd_setImageWithURL:[NSURL URLWithString:objc]];
-}
-#pragma mark - 轮播图监听点击
-- (void)cycleImagesActionWithIndexPath:(NSIndexPath *)indexPath {
-    
-    YR_CycleImageDetailViewController *dVC = [[YR_CycleImageDetailViewController alloc] init];
-    [dVC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:dVC animated:YES];
-    NSURL *url = [NSURL URLWithString:self.cycleModel.ads[indexPath.row - 1].url];
-    dVC.detailUrl = url;
-    dVC.titleStr = self.cycleModel.ads[indexPath.row - 1].title;
 }
 #pragma mark - 设置导航条视图
 - (void)setupTitleView {
@@ -238,6 +200,18 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
     self.titleImageView.centerX = self.titleView.centerX;
     self.titleImageView.image = [UIImage imageNamed:@"icon_logo"];
     [self.titleView addSubview:self.titleImageView];
+    
+    UIButton *postBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    postBtn.frame = CGRectMake(SCREEN_WIDTH - 44, 20, 44, 44);
+    [postBtn setImage:[UIImage imageNamed:@"fabuicon0"] forState:UIControlStateNormal];
+    [postBtn addTarget:self action:@selector(postMessage:) forControlEvents:UIControlEventTouchUpInside];
+    [self.titleView addSubview:postBtn];
+    
+    UIButton *searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    searchBtn.frame = CGRectMake(0, 20, 44, 44);
+    [searchBtn setImage:[UIImage imageNamed:@"icon_find"] forState:UIControlStateNormal];
+    [searchBtn addTarget:self action:@selector(enterSearch:) forControlEvents:UIControlEventTouchUpInside];
+    [self.titleView addSubview:searchBtn];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     CGFloat itemWidth = SCREEN_WIDTH / 3;
@@ -276,6 +250,60 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
     statusView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:statusView];
 }
+
+- (void)postMessage:(UIButton *)btn {
+    
+    
+}
+
+- (void)enterSearch:(UIButton *)btn {
+    
+    YR_SearchViewController *searchVC = [YR_SearchViewController new];
+    CATransition *transition=[CATransition animation];
+    transition.type= kCATransitionFade;
+    searchVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.navigationController pushViewController:searchVC animated:NO];
+}
+
+#pragma mark - 设置背景滚动视图 scrollView
+- (void)setupBackScrollView {
+    
+    CGFloat naviHeight = 64;
+    CGFloat titleHeight = 30;
+    CGFloat tabBarHeight = 49;
+    self.backScrollView = [[YR_ScrollView alloc] initWithFrame:CGRectMake(0, naviHeight + titleHeight, SCREEN_WIDTH, SCREEN_HEIGHT - naviHeight - titleHeight - tabBarHeight)];
+    [self.view addSubview:self.backScrollView];
+    self.backScrollView.backgroundColor = [UIColor whiteColor];
+    self.backScrollView.delegate = self;
+    self.backScrollView.showsHorizontalScrollIndicator = NO;
+    self.backScrollView.pagingEnabled = YES;
+    self.backScrollView.contentSize = CGSizeMake(3 * SCREEN_WIDTH, 0);
+}
+#pragma mark - 设置轮播图
+//- (void)setupCycleImageView {
+//    
+//    self.cycleImage = [[YR_CycleImage alloc] initWithFrame:self.cycleBackView.frame];
+//    [self.cycleBackView addSubview:self.cycleImage];
+//    self.cycleImage.delegate = self;
+//    self.cycleImage.dataSource = self;
+//}
+#pragma mark - 轮播图回调赋值
+//- (void)handleDataWithObject:(id)objc cell:(__kindof UICollectionViewCell *)cell {
+//    
+//    YRCycleImagesCell *imageCell = cell;
+//    [imageCell.cycleImageView sd_setImageWithURL:[NSURL URLWithString:objc]];
+//}
+#pragma mark - 轮播图监听点击
+//- (void)cycleImagesActionWithIndexPath:(NSIndexPath *)indexPath {
+//    
+//    YR_CycleImageDetailViewController *dVC = [[YR_CycleImageDetailViewController alloc] init];
+//    [dVC setHidesBottomBarWhenPushed:YES];
+//    [self.navigationController pushViewController:dVC animated:YES];
+//    NSURL *url = [NSURL URLWithString:self.cycleModel.ads[indexPath.row - 1].url];
+//    dVC.detailUrl = url;
+//    dVC.titleStr = self.cycleModel.ads[indexPath.row - 1].title;
+//}
 #pragma mark - 设置tableView
 - (void)setupHomeTableView {
     
@@ -287,7 +315,9 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
     
     self.editorRecommendListModelArr = [NSMutableArray array];
     
-    MJRefreshGifHeader *homeTableViewHeader = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+    
+    self.homeTableViewHeaderTool = [[YR_RefreshGiHeaderTool alloc] initWithScrollView:self.homeTableView requestBlock:^{
+        
         [self.manager POST:@"http://ios1.artand.cn/discover/work/hot" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSDictionary *dic = responseObject;
             self.editorRecommendModel = [YR_EditorRecommendModel modelWithDict:dic];
@@ -301,20 +331,6 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
             NSLog(@"%@", error);
         }];
     }];
-    homeTableViewHeader.stateLabel.hidden = YES;
-    homeTableViewHeader.lastUpdatedTimeLabel.hidden = YES;
-//    NSArray *imageArr = @[[UIImage imageNamed:@"1.png"], [UIImage imageNamed:@"2.png"], [UIImage imageNamed:@"3"], [UIImage imageNamed:@"4"], [UIImage imageNamed:@"5"], [UIImage imageNamed:@"6"]];
-//    NSArray *imageArr = @[[UIImage imageNamed:@"1.png"], [UIImage imageNamed:@"2.png"], [UIImage imageNamed:@"3"], [UIImage imageNamed:@"4"], [UIImage imageNamed:@"5"], [UIImage imageNamed:@"6"]];
-    NSMutableArray *imageArr = [NSMutableArray array];
-    for (int i = 0; i < 14; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%d", i]];
-        [imageArr addObject:image];
-    }
-    
-    [homeTableViewHeader setImages:imageArr duration:1 forState:MJRefreshStatePulling];
-    [homeTableViewHeader setImages:imageArr duration:1 forState:MJRefreshStateIdle];
-    [homeTableViewHeader setImages:imageArr duration:1 forState:MJRefreshStateRefreshing];
-    self.homeTableView.mj_header = homeTableViewHeader;
     
     MJRefreshAutoFooter *homeTableViewFooter = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
         [self.manager POST:@"http://ios1.artand.cn/discover/work/hot" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -330,13 +346,12 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
             NSLog(@"%@", error);
         }];
     }];
-//    homeTableViewFooter.stateLabel.hidden = YES;
+    
     self.homeTableView.mj_footer = homeTableViewFooter;
     
-    self.cycleBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH / 2)];
-    self.cycleBackView.backgroundColor = [UIColor yellowColor];
+//    self.cycleBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH / 2)];
     
-    self.likeListView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.cycleBackView.frame), SCREEN_WIDTH, (SCREEN_HEIGHT - 94 - 44) / 3)];
+    self.likeListView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (SCREEN_HEIGHT - 94 - 44) / 3)];
     UIView *likeListTintView = [[UIView alloc] initWithFrame:CGRectMake(10, 14, 2, 12)];
     likeListTintView.backgroundColor = [UIColor blackColor];
     [self.likeListView addSubview:likeListTintView];
@@ -368,7 +383,7 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
         [self.likeListView addSubview:listBtn];
     }
     
-    self.homeTableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.cycleBackView.height + self.likeListView.height + self.editorRecommendView.height)];
+    self.homeTableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.likeListView.height + self.editorRecommendView.height)];
     [self.homeTableHeaderView addSubview:self.cycleBackView];
     [self.homeTableHeaderView addSubview:self.likeListView];
     [self.homeTableHeaderView addSubview:self.editorRecommendView];
@@ -401,7 +416,7 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
     
     self.showListModelArr = [NSMutableArray array];
     
-    self.showTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.showTableViewHeaderTool = [[YR_RefreshGiHeaderTool alloc] initWithScrollView:self.showTableView requestBlock:^{
         
         [self.manager POST:@"http://ios1.artand.cn/discover/news?type=exhibit&last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             self.showModel = [YR_ShowModel modelWithDict:responseObject];
@@ -439,7 +454,8 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
         return self.showListModelArr.count;
     }
 }
-#pragma mark - tableView数据源代理方法
+#pragma mark - tableView数据
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (tableView == self.homeTableView) {
@@ -520,6 +536,12 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
         [cell.iconBtn sd_setImageWithURL:[NSURL URLWithString:iconStr] forState:UIControlStateNormal];
         NSString *coverStr = self.showListModelArr[indexPath.row].pid;
         NSString *fullStr = [NSString stringWithFormat:@"http://news.artand.cn/%@?imageView2/1/w/600/h/180%%7CimageMogr2/strip/interlace/1", coverStr];
+        
+        // 获取到更新的时间戳
+        NSString *timeStr = self.showListModelArr[indexPath.row].mtime;
+        NSString *newStr = [timeStr updateTimeForTimeIntervalString:timeStr];
+        cell.timeLabel.text = newStr;
+        
         [cell.descImageView setContentMode:UIViewContentModeScaleAspectFill];
         [cell.descImageView sd_setImageWithURL:[NSURL URLWithString:fullStr]];
         cell.btnBlock = ^{
@@ -590,25 +612,6 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
             }
         }
     }
-    
-    // 点击状态栏回滚到顶部
-//    self.backScrollView.scrollsToTop = NO;
-//    self.titleCollectionView.scrollsToTop = NO;
-//    
-//    if (self.backScrollView.contentOffset.x == 0) {
-//        self.homeTableView.scrollsToTop = YES;
-//        self.articleCollectionView.scrollsToTop = NO;
-//        self.showTableView.scrollsToTop = NO;
-//    } else if (self.backScrollView.contentOffset.x == SCREEN_WIDTH) {
-//        self.homeTableView.scrollsToTop = NO;
-//        self.articleCollectionView.scrollsToTop = YES;
-//        self.showTableView.scrollsToTop = NO;
-//    } else {
-//        self.homeTableView.scrollsToTop = NO;
-//        self.articleCollectionView.scrollsToTop = NO;
-//        self.showTableView.scrollsToTop = YES;
-//    }
-    
 }
 
 
@@ -641,7 +644,7 @@ static NSString * const showTableViewCellReuse = @"showTableViewCellReuse";
     
     self.a_newArtsListModelArr = [NSMutableArray array];
     
-    self.articleCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.articleCollectionViewHeaderTool = [[YR_RefreshGiHeaderTool alloc] initWithScrollView:self.articleCollectionView requestBlock:^{
         [self.manager POST:@"http://ios1.artand.cn/discover/work/new?last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             self.a_newArtsModel = [YR_NewArtsModel modelWithDict:responseObject];
             [self.a_newArtsListModelArr removeAllObjects];

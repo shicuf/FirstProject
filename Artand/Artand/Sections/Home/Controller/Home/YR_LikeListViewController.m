@@ -22,10 +22,14 @@
 #import "YR_ScrollView.h"
 #import "YR_PersonalPageViewController.h"
 #import "NSString+YR_TimeInterval.h"
+#import "YR_RefreshGiHeaderTool.h"
+#import "MJRefresh.h"
 
 static NSString * const likeListCellReuse = @"likeListCellReuse";
 
 @interface YR_LikeListViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 
 @property (nonatomic, strong) UIView *naviView;
 @property (nonatomic, strong) UICollectionView *titleCollectionView;
@@ -40,6 +44,10 @@ static NSString * const likeListCellReuse = @"likeListCellReuse";
 @property (nonatomic, strong) YR_EditorRecommendModel *weekModel;
 @property (nonatomic, strong) YR_EditorRecommendModel *monthModel;
 
+@property (nonatomic, strong) YR_RefreshGiHeaderTool *dayTableViewHeaderTool;
+@property (nonatomic, strong) YR_RefreshGiHeaderTool *weekTableViewHeaderTool;
+@property (nonatomic, strong) YR_RefreshGiHeaderTool *monthTableViewHeaderTool;
+
 @end
 
 @implementation YR_LikeListViewController
@@ -48,8 +56,8 @@ static NSString * const likeListCellReuse = @"likeListCellReuse";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self handleData];
     [self setupUI];
+    [self handleData];
     
     [self.backScrollView setContentOffset:CGPointMake(self.index * SCREEN_WIDTH, 0) animated:YES];
     [self collectionView:self.titleCollectionView didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:self.index inSection:0]];
@@ -57,28 +65,31 @@ static NSString * const likeListCellReuse = @"likeListCellReuse";
 
 - (void)handleData {
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    self.manager = [AFHTTPSessionManager manager];
     // 日榜请求
-    [manager POST:@"http://ios1.artand.cn/discover/rank?type=today&last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [_manager POST:@"http://ios1.artand.cn/discover/rank?type=today&last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.dayModel = [YR_EditorRecommendModel modelWithDict:responseObject];
         [self.dayTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
     // 周榜请求
-    [manager POST:@"http://ios1.artand.cn/discover/rank?type=week&last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [_manager POST:@"http://ios1.artand.cn/discover/rank?type=week&last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.weekModel = [YR_EditorRecommendModel modelWithDict:responseObject];
         [self.weekTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
     // 月榜
-    [manager POST:@"http://ios1.artand.cn/discover/rank?type=month&last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [_manager POST:@"http://ios1.artand.cn/discover/rank?type=month&last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.monthModel = [YR_EditorRecommendModel modelWithDict:responseObject];
         [self.monthTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
+    
+    
+    
 }
 
 - (void)setupUI {
@@ -143,6 +154,37 @@ static NSString * const likeListCellReuse = @"likeListCellReuse";
     self.dayTableView = [self createTableViewWithPointX:0];
     self.weekTableView = [self createTableViewWithPointX:SCREEN_WIDTH];
     self.monthTableView = [self createTableViewWithPointX:2 * SCREEN_WIDTH];
+    
+    self.dayTableViewHeaderTool = [[YR_RefreshGiHeaderTool alloc] initWithScrollView:self.dayTableView requestBlock:^{
+        [_manager POST:@"http://ios1.artand.cn/discover/rank?type=today&last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            self.dayModel = [YR_EditorRecommendModel modelWithDict:responseObject];
+            [self.dayTableView reloadData];
+            [self.dayTableView.mj_header endRefreshing];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+        }];
+    }];
+    
+    self.weekTableViewHeaderTool = [[YR_RefreshGiHeaderTool alloc] initWithScrollView:self.weekTableView requestBlock:^{
+        [_manager POST:@"http://ios1.artand.cn/discover/rank?type=week&last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            self.weekModel = [YR_EditorRecommendModel modelWithDict:responseObject];
+            [self.weekTableView reloadData];
+            [self.weekTableView.mj_header endRefreshing];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+        }];
+    }];
+    
+    self.monthTableViewHeaderTool = [[YR_RefreshGiHeaderTool alloc] initWithScrollView:self.monthTableView requestBlock:^{
+        [_manager POST:@"http://ios1.artand.cn/discover/rank?type=month&last_id=0" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            self.monthModel = [YR_EditorRecommendModel modelWithDict:responseObject];
+            [self.monthTableView reloadData];
+            [self.monthTableView.mj_header endRefreshing];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+        }];
+        
+    }];
 }
 
 - (void)popAction:(UIButton *)btn {

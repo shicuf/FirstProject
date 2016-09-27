@@ -26,8 +26,8 @@
 
 
 - (void)awakeFromNib {
-    
     [super awakeFromNib];
+
     self.articleWebView.delegate = self;
     // 解决webView横向能滑动问题
     self.articleWebView.scrollView.alwaysBounceHorizontal = NO;

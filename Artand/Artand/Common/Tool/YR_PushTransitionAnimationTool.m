@@ -26,18 +26,38 @@
     [containerView addSubview:toVC.view];
     toVC.toImageView.hidden = YES;
     // 截图大法
-    UIView *snapView = [fromVC.fromImageView snapshotViewAfterScreenUpdates:NO];
-    [containerView addSubview:snapView];
-    snapView.frame = fromVC.newRect;
+//    UIView *snapView = [fromVC.fromImageView snapshotViewAfterScreenUpdates:NO];
+//    [containerView addSubview:snapView];
+//    snapView.frame = fromVC.newRect;
+    
+    
+    UIImage *image = [self imageFromView:fromVC.fromImageView];
+    UIImageView *snapImageView = [[UIImageView alloc] initWithImage:image];
+    snapImageView.frame = fromVC.fromImageView.frame;
+    [containerView addSubview:snapImageView];
+    snapImageView.frame = fromVC.newRect;
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         [containerView layoutIfNeeded];
-        snapView.frame = toVC.toImageView.frame;
+        snapImageView.frame = toVC.toImageView.frame;
     } completion:^(BOOL finished) {
         toVC.toImageView.hidden = NO;
-        [snapView removeFromSuperview];
+        [snapImageView removeFromSuperview];
         [transitionContext completeTransition:YES];
     }];
+    
+    
 }
+
+
+- (UIImage *)imageFromView:(UIView *)snapView {
+    UIGraphicsBeginImageContext(snapView.frame.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [snapView.layer renderInContext:context];
+    UIImage *targetImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return targetImage;
+}
+
 
 @end

@@ -12,10 +12,11 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
+
     self.iconImageView.layer.cornerRadius = self.iconImageView.frame.size.width / 2;
     self.iconImageView.layer.masksToBounds = YES;
     self.iconImageView.backgroundColor = [UIColor cyanColor];
-    [super awakeFromNib];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

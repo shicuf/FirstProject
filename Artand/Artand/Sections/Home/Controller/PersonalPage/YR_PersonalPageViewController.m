@@ -128,7 +128,6 @@
     separateLine.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
     [self.naviView addSubview:separateLine];
     
-    
     self.popBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.popBtn.frame = CGRectMake(0, 20, 44, 44);
     [self.popBtn setImage:[UIImage imageNamed:@"pop"] forState:UIControlStateNormal];

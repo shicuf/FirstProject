@@ -15,14 +15,19 @@
 #import "YR_PurchasePicModel.h"
 #import "UIButton+WebCache.h"
 #import "YR_ArtDetailViewController.h"
+#import "YR_RefreshGiHeaderTool.h"
+#import "MJRefresh.h"
 
 static NSString * const purchaseCellReuse = @"purchaseCellReuse";
 
 @interface YR_PurchaseViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @property (nonatomic, strong) YR_PurchaseModel *purchaseModel;
 @property (weak, nonatomic) IBOutlet UICollectionView *artCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *artCollectionViewFlowLayout;
+
+@property (nonatomic, strong) YR_RefreshGiHeaderTool *artCollectionViewHeaderTool;
 
 @end
 
@@ -39,13 +44,23 @@ static NSString * const purchaseCellReuse = @"purchaseCellReuse";
     self.artCollectionViewFlowLayout.minimumInteritemSpacing = 1;
     
     [self.artCollectionView registerNib:[UINib nibWithNibName:@"YR_PurchaseCell" bundle:nil] forCellWithReuseIdentifier:purchaseCellReuse];
+    
+    self.artCollectionViewHeaderTool = [[YR_RefreshGiHeaderTool alloc] initWithScrollView:self.artCollectionView requestBlock:^{
+        [_manager POST:@"http://ios1.artand.cn/sale/search?" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            self.purchaseModel = [YR_PurchaseModel modelWithDict:responseObject];
+            [self.artCollectionView reloadData];
+            [self.artCollectionView.mj_header endRefreshing];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+        }];
+    }];
 }
 
 - (void)handleData {
     
     // http://work.artand.cn/GLC/FiKGf3GvYbLL99s1Qk7w5Nx6dbg7.jpeg!app.c360.webp
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager POST:@"http://ios1.artand.cn/sale/search?" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    _manager = [AFHTTPSessionManager manager];
+    [_manager POST:@"http://ios1.artand.cn/sale/search?" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.purchaseModel = [YR_PurchaseModel modelWithDict:responseObject];
         [self.artCollectionView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

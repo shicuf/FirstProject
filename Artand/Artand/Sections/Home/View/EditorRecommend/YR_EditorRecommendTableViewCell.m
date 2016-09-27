@@ -11,7 +11,7 @@
 @implementation YR_EditorRecommendTableViewCell
 
 - (void)awakeFromNib {
-    
+    [super awakeFromNib];
     self.iconBtn.layer.cornerRadius = self.iconBtn.frame.size.width / 2;
     self.iconBtn.layer.masksToBounds = YES;
     self.iconBtn.userInteractionEnabled = NO;

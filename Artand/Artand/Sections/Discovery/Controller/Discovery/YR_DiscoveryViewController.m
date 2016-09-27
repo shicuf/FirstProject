@@ -14,6 +14,8 @@
 #import "YR_PurchaseViewController.h"
 #import "YR_ArtistViewController.h"
 #import "YR_FansViewController.h"
+#import "YR_ArtMomentController.h"
+#import "YR_SearchViewController.h"
 
 @interface YR_DiscoveryViewController ()
 
@@ -41,8 +43,6 @@
     [self setupUI];
 }
 
-
-
 - (void)setupUI {
     
     [self setupTitleView];
@@ -66,7 +66,18 @@
     [self.searchBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     self.searchBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.searchBtn setAdjustsImageWhenHighlighted:NO];
+    [self.searchBtn addTarget:self action:@selector(enterSearchView:) forControlEvents:UIControlEventTouchUpInside];
     [self.titleView addSubview:self.searchBtn];
+}
+
+- (void)enterSearchView:(UIButton *)btn {
+    
+    YR_SearchViewController *searchVC = [YR_SearchViewController new];
+    CATransition *transition=[CATransition animation];
+    transition.type= kCATransitionFade;
+    searchVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.navigationController pushViewController:searchVC animated:NO];
 }
 
 - (void)setupDiscoveryScrollView {
@@ -135,7 +146,9 @@
 
 - (void)pushArticle:(UITapGestureRecognizer *)tap {
     
-    
+    YR_ArtMomentController *artMomentVC = [[YR_ArtMomentController alloc] init];
+    artMomentVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:artMomentVC animated:YES];
 }
 
 - (void)pushDailySelection:(UITapGestureRecognizer *)tap {

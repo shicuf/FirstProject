@@ -13,6 +13,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
+
     self.iconBtn.layer.cornerRadius = 16;
     self.iconBtn.layer.masksToBounds = YES;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -24,6 +26,8 @@
     // Configure the view for the selected state
 }
 - (IBAction)followBtnAction:(id)sender {
+    
+    
     
     YRLog(@"关注");
 }

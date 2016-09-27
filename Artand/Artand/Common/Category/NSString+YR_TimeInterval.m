@@ -19,9 +19,15 @@
     // 时间差
     NSTimeInterval time = currentTime - createTime;
     
+    
     // 秒转分钟
     NSInteger minute = time / 60;
-    if (minute < 60) {
+    
+    if (minute < 1) {
+        return [NSString stringWithFormat:@"刚刚"];
+    }
+    
+    if (minute < 60 && minute >= 1) {
         return [NSString stringWithFormat:@"%ld分钟前", minute];
     }
     // 秒转小时

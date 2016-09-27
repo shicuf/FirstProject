@@ -10,6 +10,9 @@
 #import "AFNetworking.h"
 #import "YR_SetupPasswordViewController.h"
 #import "YR_Button.h"
+#import "NSString+YR_RegEx.h"
+#import "MozTopAlertView.h"
+#import "UIButton+YR_TimeCountButton.h"
 
 @interface YR_LogupViewController ()
 
@@ -44,18 +47,29 @@
 }
 
 #pragma mark - 点击获取验证码按钮
-- (IBAction)getCaptchaAction:(id)sender {
+- (IBAction)getCaptchaAction:(UIButton *)sender {
     
-    self.manager = [AFHTTPSessionManager manager];
-    NSDictionary *para = @{@"area":@"86",
-                           @"mobile":self.logupPhoneTextField.text,
-                           @"type":@"sign"};
-    
-    [_manager POST:@"http://ios1.artand.cn/signup/sms" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
-    }];
+    if ([NSString isMobileNumber:self.logupPhoneTextField.text]) {
+        self.manager = [AFHTTPSessionManager manager];
+        NSDictionary *para = @{@"area":@"86",
+                               @"mobile":self.logupPhoneTextField.text,
+                               @"type":@"sign"};
+        
+        [_manager POST:@"http://ios1.artand.cn/signup/sms" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            if ([responseObject[@"code"] integerValue] != 1000) {
+                [MozTopAlertView showWithType:MozAlertTypeWarning text:responseObject[@"msg"] parentView:self.view];
+            } else {
+                [sender sentPhoneCodeTimeMethod];
+                [MozTopAlertView showWithType:MozAlertTypeSuccess text:@"发送成功" parentView:self.view];
+            }
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+        }];
+        
+    } else {
+        [MozTopAlertView showWithType:MozAlertTypeError text:@"请输入正确的手机号" parentView:self.view];
+    }
 }
 #pragma mark - 点击下一步按钮
 - (IBAction)nextStepAction:(id)sender {
@@ -66,14 +80,18 @@
     [_manager POST:@"http://ios1.artand.cn/signup/checkVerify" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", responseObject);
         
+        if ([responseObject[@"code"] integerValue] == 1000) {
+            
+            YR_SetupPasswordViewController *setupPasswordVC = [[YR_SetupPasswordViewController alloc] init];
+            setupPasswordVC.captchaStr = self.logupCaptchaTextField.text;
+            setupPasswordVC.phoneStr = self.logupPhoneTextField.text;
+            [self.navigationController pushViewController:setupPasswordVC animated:YES];
+        }
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
     
-    YR_SetupPasswordViewController *setupPasswordVC = [[YR_SetupPasswordViewController alloc] init];
-    setupPasswordVC.captchaStr = self.logupCaptchaTextField.text;
-    setupPasswordVC.phoneStr = self.logupPhoneTextField.text;
-    [self.navigationController pushViewController:setupPasswordVC animated:YES];
 }
 #pragma mark - 点击返回和登录按钮
 - (IBAction)popLoginAction:(id)sender {

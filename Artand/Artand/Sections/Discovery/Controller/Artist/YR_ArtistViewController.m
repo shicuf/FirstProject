@@ -15,9 +15,12 @@
 #import "YR_TitleCollectionViewCell.h"
 #import "UIView+Frame.h"
 #import "YR_ScrollView.h"
+#import "YR_RefreshGiHeaderTool.h"
+#import "MJRefresh.h"
 
 @interface YR_ArtistViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @property (nonatomic, strong) YR_ScrollView *backScrollView;
 @property (nonatomic, strong) YR_ArtistTableView *artistTodayTableView;
 @property (nonatomic, strong) YR_ArtistTableView *artistNewTableView;
@@ -25,6 +28,10 @@
 @property (nonatomic, strong) UICollectionView *titleCollectionView;
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, strong) UIView *tintView;
+
+@property (nonatomic, strong) YR_RefreshGiHeaderTool *artistTodatyTableViewHeaderTool;
+@property (nonatomic, strong) YR_RefreshGiHeaderTool *artistNewTableViewHeaderTool;
+
 
 @end
 
@@ -40,15 +47,16 @@
 
 - (void)handleData {
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager POST:@"http://ios1.artand.cn/discover/artist?type=today&last_id=" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    _manager = [AFHTTPSessionManager manager];
+    [_manager POST:@"http://ios1.artand.cn/discover/artist?type=today&last_id=" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.artistTodayTableView.artistModel = [YR_ArtistModel modelWithDict:responseObject];
+        
         [self.artistTodayTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
     
-    [manager POST:@"http://ios1.artand.cn/discover/artist?type=new&last_id=" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [_manager POST:@"http://ios1.artand.cn/discover/artist?type=new&last_id=" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.artistNewTableView.artistModel = [YR_ArtistModel modelWithDict:responseObject];
         [self.artistNewTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -92,9 +100,29 @@
     self.artistTodayTableView.backgroundColor = [UIColor whiteColor];
     [self.backScrollView addSubview:self.artistTodayTableView];
     
+    self.artistTodatyTableViewHeaderTool = [[YR_RefreshGiHeaderTool alloc] initWithScrollView:self.artistTodayTableView requestBlock:^{
+        [_manager POST:@"http://ios1.artand.cn/discover/artist?type=today&last_id=" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            self.artistTodayTableView.artistModel = [YR_ArtistModel modelWithDict:responseObject];
+            [self.artistTodayTableView reloadData];
+            [self.artistTodayTableView.mj_header endRefreshing];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+        }];
+    }];
+    
     self.artistNewTableView = [[YR_ArtistTableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 108) style:UITableViewStylePlain];
     self.artistNewTableView.backgroundColor = [UIColor whiteColor];
     [self.backScrollView addSubview:self.artistNewTableView];
+    
+    self.artistNewTableViewHeaderTool = [[YR_RefreshGiHeaderTool alloc] initWithScrollView:self.artistNewTableView requestBlock:^{
+        [_manager POST:@"http://ios1.artand.cn/discover/artist?type=new&last_id=" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            self.artistNewTableView.artistModel = [YR_ArtistModel modelWithDict:responseObject];
+            [self.artistNewTableView reloadData];
+            [self.artistNewTableView.mj_header endRefreshing];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+        }];
+    }];
 }
 #pragma mark - scrollView代理方法
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

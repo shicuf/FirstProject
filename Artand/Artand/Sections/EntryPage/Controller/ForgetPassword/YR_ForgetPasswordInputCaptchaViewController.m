@@ -10,6 +10,7 @@
 #import "YR_Button.h"
 #import "AFNetworking.h"
 #import "YR_ForgetPasswordResetViewController.h"
+#import "MozTopAlertView.h"
 
 @interface YR_ForgetPasswordInputCaptchaViewController ()
 
@@ -51,6 +52,8 @@
             vc.num = self.captchaTextField.text;
             vc.email = self.phoneNum;
             [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            [MozTopAlertView showWithType:MozAlertTypeError text:responseObject[@"msg"] parentView:self.view];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);

@@ -24,6 +24,7 @@ typedef void(^PicBtnBlock)();
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet YR_Button *likeBtn;
 
+
 @property (nonatomic, copy) PicBtnBlock btnBlock;
 
 @end

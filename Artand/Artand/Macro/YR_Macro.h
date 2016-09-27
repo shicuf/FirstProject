@@ -37,5 +37,10 @@
 #define TAB_HEIGHT 49
 #define STATUSBAR_HEIGHT 20
 
+#define SESSION_ID [[NSUserDefaults standardUserDefaults] objectForKey:@"session_id"]
+#define UID [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]
+#define UNAME [[NSUserDefaults standardUserDefaults] objectForKey:@"uname"]
+#define VERSION [[NSUserDefaults standardUserDefaults] objectForKey:@"version"]
+#define THEAD [[NSUserDefaults standardUserDefaults] objectForKey:@"thead"]
 
 #endif /* YR_Macro_h */

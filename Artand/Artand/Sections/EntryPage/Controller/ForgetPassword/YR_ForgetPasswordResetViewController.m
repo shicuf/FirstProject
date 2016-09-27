@@ -10,6 +10,7 @@
 #import "YR_Button.h"
 #import "AFNetworking.h"
 #import "YR_Macro.h"
+#import "MozTopAlertView.h"
 
 @interface YR_ForgetPasswordResetViewController ()
 
@@ -63,13 +64,14 @@
             if ([responseObject[@"code"] integerValue] == 1000) {
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 YRLog(@"修改成功");
+                [MozTopAlertView showWithType:MozAlertTypeSuccess text:@"修改成功" parentView:self.view];
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"%@", error);
         }];
         
     } else {
-        
+        [MozTopAlertView showWithType:MozAlertTypeError text:@"两次输入密码不匹配" parentView:self.view];
         YRLog(@"not match");
     }
     

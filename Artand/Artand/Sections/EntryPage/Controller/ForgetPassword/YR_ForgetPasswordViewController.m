@@ -11,6 +11,8 @@
 #import "AFNetworking.h"
 #import "YR_ForgetPasswordInputCaptchaViewController.h"
 #import "YR_Macro.h"
+#import "NSString+YR_RegEx.h"
+#import "MozTopAlertView.h"
 
 @interface YR_ForgetPasswordViewController ()
 
@@ -49,21 +51,27 @@
 #pragma mark - 点击确定按钮
 - (IBAction)confirmAction:(id)sender {
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSDictionary *para = @{@"email":self.forgetPasswordPhoneTextField.text};
-    [manager POST:@"http://v1.artand.cn/forgot_password/doForgot" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        if ([responseObject[@"code"] integerValue] == 1000) {
-            // 这时候在push到发送验证码那一页
-            YR_ForgetPasswordInputCaptchaViewController *captchaVC = [[YR_ForgetPasswordInputCaptchaViewController alloc] init];
-            captchaVC.phoneNum = self.forgetPasswordPhoneTextField.text;
-            [self.navigationController pushViewController:captchaVC animated:YES];
-        } else {
-            YRLog(@"%@", responseObject[@"msg"]);
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
-    }];
+    if ([NSString isMobileNumber:self.forgetPasswordPhoneTextField.text]) {
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        NSDictionary *para = @{@"email":self.forgetPasswordPhoneTextField.text};
+        [manager POST:@"http://v1.artand.cn/forgot_password/doForgot" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            if ([responseObject[@"code"] integerValue] == 1000) {
+                // 这时候在push到发送验证码那一页
+                [MozTopAlertView showWithType:MozAlertTypeSuccess text:@"发送成功" parentView:self.view];
+                YR_ForgetPasswordInputCaptchaViewController *captchaVC = [[YR_ForgetPasswordInputCaptchaViewController alloc] init];
+                captchaVC.phoneNum = self.forgetPasswordPhoneTextField.text;
+                [self.navigationController pushViewController:captchaVC animated:YES];
+            } else {
+                YRLog(@"%@", responseObject[@"msg"]);
+                [MozTopAlertView showWithType:MozAlertTypeError text:responseObject[@"msg"] parentView:self.view];
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+        }];
+    } else {
+        [MozTopAlertView showWithType:MozAlertTypeError text:@"请输入正确的手机号" parentView:self.view];
+    }
 }
 #pragma mark - 隐藏状态栏
 - (BOOL)prefersStatusBarHidden {

@@ -14,31 +14,73 @@
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     
+//    YR_ArtDetailViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+//    YR_ArtDetailImageTransitionController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+//    
+//    UIView *containerView = [transitionContext containerView];
+//    [containerView addSubview:toVC.view];
+//    toVC.fromImageView.hidden = YES;
+//    // 截图大法
+//    UIView *snapView = [fromVC.toImageView snapshotViewAfterScreenUpdates:NO];
+//    [containerView addSubview:snapView];
+//    snapView.frame = fromVC.toImageView.frame;
+//    
+//    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+//        [containerView layoutIfNeeded];
+////        snapView.frame = toVC.fromImageView.frame;
+//        snapView.frame = CGRectMake(toVC.fromImageView.frame.origin.x, toVC.fromImageView.frame.origin.y + 64, toVC.fromImageView.frame.size.width, toVC.fromImageView.frame.size.height);
+//    } completion:^(BOOL finished) {
+//        toVC.fromImageView.hidden = NO;
+//        [snapView removeFromSuperview];
+//        [transitionContext completeTransition:YES];
+//    }];
+    
     YR_ArtDetailViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     YR_ArtDetailImageTransitionController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
     UIView *containerView = [transitionContext containerView];
     [containerView addSubview:toVC.view];
     toVC.fromImageView.hidden = YES;
+    
+    
+    
+    UIImage *image = [self imageFromView:fromVC.toImageView];
+    UIImageView *snapImageView = [[UIImageView alloc] initWithImage:image];
+    snapImageView.frame = fromVC.toImageView.frame;
+    [containerView addSubview:snapImageView];
+    snapImageView.frame = fromVC.toImageView.frame;
+    
     // 截图大法
-    UIView *snapView = [fromVC.toImageView snapshotViewAfterScreenUpdates:NO];
-    [containerView addSubview:snapView];
-    snapView.frame = fromVC.toImageView.frame;
+//    UIView *snapView = [fromVC.toImageView snapshotViewAfterScreenUpdates:NO];
+//    [containerView addSubview:snapView];
+//    snapView.frame = fromVC.toImageView.frame;
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         [containerView layoutIfNeeded];
-//        snapView.frame = toVC.fromImageView.frame;
-        snapView.frame = CGRectMake(toVC.fromImageView.frame.origin.x, toVC.fromImageView.frame.origin.y + 64, toVC.fromImageView.frame.size.width, toVC.fromImageView.frame.size.height);
+        //        snapView.frame = toVC.fromImageView.frame;
+        snapImageView.frame = CGRectMake(toVC.fromImageView.frame.origin.x, toVC.fromImageView.frame.origin.y + 64, toVC.fromImageView.frame.size.width, toVC.fromImageView.frame.size.height);
     } completion:^(BOOL finished) {
         toVC.fromImageView.hidden = NO;
-        [snapView removeFromSuperview];
+        [snapImageView removeFromSuperview];
         [transitionContext completeTransition:YES];
     }];
+    
+    
+
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
     
     return 0.5;
+}
+
+- (UIImage *)imageFromView:(UIView *)snapView {
+    UIGraphicsBeginImageContext(snapView.frame.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [snapView.layer renderInContext:context];
+    UIImage *targetImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return targetImage;
 }
 
 @end
