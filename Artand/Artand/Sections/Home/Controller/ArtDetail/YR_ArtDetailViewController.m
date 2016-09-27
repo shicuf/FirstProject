@@ -31,6 +31,7 @@
 #import "YR_ArtDetailLikePersonController.h"
 #import "YR_ShareViewTool.h"
 #import "NSString+YR_TimeInterval.h"
+#import "YR_ShareOneModel.h"
 
 static NSString * const artDetailReuse = @"artDetailReuse";
 static NSString * const artDetailImageViewCellReuse = @"artDetailImageViewCellReuse";
@@ -56,6 +57,8 @@ static NSString * const artDetailArtistReuse = @"artDetailArtistReuse";
 
 @property (nonatomic, strong) YR_ArtDetailImageTransitionController *vc;
 @property (nonatomic, strong) UIView *shareView;
+
+@property (nonatomic, strong) YR_ShareOneModel *shareModel;
 
 @end
 
@@ -191,7 +194,25 @@ static NSString * const artDetailArtistReuse = @"artDetailArtistReuse";
 
 - (void)detailMoreAction:(UIButton *)btn {
     
+    
     YR_ShareViewTool *shareView = [[YR_ShareViewTool alloc] initWithFrame:self.view.bounds];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"http://ios1.artand.cn/share?type=1&id=%@", self.rowid];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:urlStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.shareModel = [YR_ShareOneModel modelWithDict:responseObject];
+        shareView.shareOneModel = self.shareModel;
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+    }];
+    
+    
+    // http://ios1.artand.cn/share?type=1&id=305986
+    
+    
+    
+#warning 进入细节分享界面
+    
     [self.view addSubview:shareView];
 }
 

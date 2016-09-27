@@ -10,8 +10,16 @@
 #import "YR_Macro.h"
 #import "YR_BaseNavigationController.h"
 #import "UIView+Frame.h"
+#import "SVProgressHUD.h"
+#import "WXApi.h"
+#import "YR_ShareOneModel.h"
+#import "YR_ShareOneMomentsModel.h"
+#import "YR_ShareOneNormalModel.h"
+#import "YR_ShareOneShareModel.h"
+#import "YR_ShareOneSinaModel.h"
+#import "YR_ShareOneWechatModel.h"
 
-@interface YR_ShareViewTool ()
+@interface YR_ShareViewTool () <WXApiDelegate>
 
 @property (nonatomic, strong) YR_BaseNavigationController *nav;
 
@@ -70,6 +78,8 @@
         [btn setImage:[UIImage imageNamed:btnArr[i]] forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:highlightedBtnArr[i]] forState:UIControlStateHighlighted];
         [upScrollView addSubview:btn];
+        btn.tag = 10010 + i;
+        [btn addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 85, 65, 20)];
         label.centerX = btn.centerX;
         label.text = upTitleArr[i];
@@ -116,6 +126,114 @@
     [self removeFromSuperview];
     self.nav.pan.enabled = YES;
 }
+
+- (void)share:(UIButton *)btn {
+    
+    if (btn.tag == 10011) {
+        
+        if ([WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi]) {
+            
+            SendMessageToWXReq *sendReq = [[SendMessageToWXReq alloc] init];
+            sendReq.bText = NO;
+            sendReq.scene = 0;
+            
+            // 2.创建分享内容
+            WXMediaMessage *message = [WXMediaMessage message];
+            //分享标题
+            message.title = self.shareOneModel.share.wechat.title;
+            // 描述
+            message.description = self.shareOneModel.share.wechat.desc;
+            //分享图片,使用SDK的setThumbImage方法可压缩图片大小
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.shareOneModel.share.wechat.pic]]];
+            
+            
+            [message setThumbImage:image];
+            
+            //创建多媒体对象
+            WXWebpageObject *webObj = [WXWebpageObject object];
+            // 点击后的跳转链接
+            webObj.webpageUrl = self.shareOneModel.share.wechat.url;
+            message.mediaObject = webObj;
+            sendReq.message = message;
+            [WXApi sendReq:sendReq];
+            
+        } else {
+            
+            [SVProgressHUD showInfoWithStatus:@"你还没有安装微信"];
+        }
+  
+//        SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+//        req.text = @"这是测试发送的内容。";
+//        req.bText = YES;
+//        req.scene = WXSceneSession;
+        
+//        [WXApi sendReq:req];
+    }
+    
+    if (btn.tag == 10012) {
+        
+        if ([WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi]) {
+            
+            SendMessageToWXReq *sendReq = [[SendMessageToWXReq alloc] init];
+            sendReq.bText = NO;
+            sendReq.scene = WXSceneTimeline;
+            
+            // 2.创建分享内容
+            WXMediaMessage *message = [WXMediaMessage message];
+            //分享标题
+            message.title = self.shareOneModel.share.moments.desc;
+            // 描述
+            message.description = self.shareOneModel.share.moments.uname;
+            //分享图片,使用SDK的setThumbImage方法可压缩图片大小
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.shareOneModel.share.moments.pic]]];
+            
+            [message setThumbImage:image];
+            
+            //创建多媒体对象
+            WXWebpageObject *webObj = [WXWebpageObject object];
+            // 点击后的跳转链接
+            webObj.webpageUrl = self.shareOneModel.share.moments.qr;
+            message.mediaObject = webObj;
+            sendReq.message = message;
+            [WXApi sendReq:sendReq];
+            
+        } else {
+            
+            [SVProgressHUD showInfoWithStatus:@"你还没有安装微信"];
+        }
+    }
+    
+}
+
+- (void)SendTextImageLink {
+    
+    if (![WXApi isWXAppInstalled]) {
+        NSLog(@"请移步App Store去下载微信客户端");
+    }else {
+        SendMessageToWXReq *sendReq = [[SendMessageToWXReq alloc] init];
+        sendReq.bText = NO;
+        sendReq.scene = 0;
+        
+        // 2.创建分享内容
+        WXMediaMessage *message = [WXMediaMessage message];
+        //分享标题
+        message.title = @"宝宝也是醉了";
+        // 描述
+        message.description = @"微信微信微信微信微信微信微信微信微信微信测试";
+        //分享图片,使用SDK的setThumbImage方法可压缩图片大小
+        [message setThumbImage:[UIImage imageNamed:@"1"]];
+        
+        //创建多媒体对象
+        WXWebpageObject *webObj = [WXWebpageObject object];
+        // 点击后的跳转链接
+        webObj.webpageUrl = @"www.baidu.com";
+        message.mediaObject = webObj;
+        sendReq.message = message;
+        [WXApi sendReq:sendReq];
+    }
+}
+
+
 
 
 @end

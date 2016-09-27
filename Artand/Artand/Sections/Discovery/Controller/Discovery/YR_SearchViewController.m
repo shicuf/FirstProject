@@ -385,16 +385,10 @@
         [manager.requestSerializer setValue:[header valueForKey:key] forHTTPHeaderField:key];
     }
     
-
-    
-    
-    
-    NSDictionary *para = @{@"session_id":SESSION_ID};
-    
     NSString *searchArticleStr = [NSString stringWithFormat:@"http://v1.artand.cn/search/index?q=%@&last_id=0&type=article", searchText];
     NSString * encodingArticleStr = [searchArticleStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
-    [manager POST:encodingArticleStr parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager POST:encodingArticleStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.articleModel = [YR_SearchArticleModel modelWithDict:responseObject];
         [self.articleTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

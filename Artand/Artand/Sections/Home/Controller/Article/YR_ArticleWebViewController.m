@@ -121,6 +121,7 @@ static NSString * const articleWebViewCell = @"articleWebViewCell";
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     cell.shareBlock = ^{
+        
         YR_ShareViewTool *shareView = [[YR_ShareViewTool alloc] initWithFrame:weakSelf.view.bounds];
         [weakSelf.view addSubview:shareView];
     };

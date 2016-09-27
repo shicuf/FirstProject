@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class YR_ShareOneModel;
+
 @interface YR_ShareViewTool : UIView
+
+@property (nonatomic, strong) YR_ShareOneModel *shareOneModel;
 
 @end
